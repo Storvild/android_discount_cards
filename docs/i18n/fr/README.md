@@ -1,3 +1,5 @@
+📖 [Guide de l'utilisateur](USER_GUID.md) | ❓ [FAQ](FAQ.md)
+
 # DiscountCards
 
 **DiscountCards** est une application Android pour stocker, scanner et utiliser facilement vos cartes de fidélité et cartes de réduction. L'application vous permet de conserver toutes vos cartes de réduction à un seul endroit, de les scanner rapidement à la caisse grâce à un générateur de codes-barres et de créer des sauvegardes de vos données.

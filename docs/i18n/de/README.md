@@ -1,3 +1,5 @@
+📖 [Benutzerhandbuch](USER_GUID.md) | ❓ [FAQ](FAQ.md)
+
 # DiscountCards
 
 **DiscountCards** ist eine Android-App zum bequemen Speichern, Scannen und Verwenden von Kundenkarten und Rabattkarten. Die App ermöglicht es, alle Rabattkarten an einem Ort zu speichern, sie an der Kasse schnell mit einem Barcode-Generator zu scannen und Daten zu sichern.

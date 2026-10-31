@@ -1,3 +1,5 @@
+📖 [User Guide](USER_GUID.md) | ❓ [FAQ](FAQ.md)
+
 # DiscountCards
 
 **DiscountCards** is an Android app for conveniently storing, scanning and using loyalty and discount cards. The app lets you keep all your discount cards in one place, quickly scan them at the checkout using a barcode generator, and back up your data.

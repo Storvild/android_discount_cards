@@ -1,3 +1,5 @@
+📖 [Kullanım Kılavuzu](USER_GUID.md) | ❓ [Sıkça Sorulan Sorular (FAQ)](FAQ.md)
+
 # DiscountCards
 
 **DiscountCards**, sadakat kartlarını ve indirim kartlarını rahatça saklamak, taramak ve kullanmak için tasarlanmış bir Android uygulamasıdır. Uygulama, tüm indirim kartlarınızı tek bir yerde saklamanıza, barkod oluşturucu sayesinde kasiyerde hızlıca taramanıza ve verilerinizi yedeklemenize olanak tanır.

@@ -1,3 +1,5 @@
+📖 [Guida utente](USER_GUID.md) | ❓ [Domande frequenti (FAQ)](FAQ.md)
+
 # DiscountCards
 
 **DiscountCards** è un'app Android per archiviare, scansionare e utilizzare comodamente le tue tessere di fidelizzazione e di sconto. L'app ti consente di conservare tutte le tue tessere di sconto in un unico luogo, di scansionarle rapidamente alla cassa mediante un generatore di codici a barre e di creare backup dei tuoi dati.
