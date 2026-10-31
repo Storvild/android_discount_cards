@@ -59,6 +59,9 @@ fun ArchiveScreen(
     onCardClick: (Long) -> Unit,
     onAddCardClick: () -> Unit,
     onBackClick: () -> Unit,
+    onUnarchiveCardClick: ((DiscountCard) -> Unit)? = null,
+    onEditCardClick: ((Long) -> Unit)? = null,
+    onDeleteCardClick: ((DiscountCard) -> Unit)? = null,
     showBarcodesInList: Boolean = true
 ) {
     Scaffold(
@@ -161,8 +164,11 @@ fun ArchiveScreen(
                             CardListItem(
                                 card = card,
                                 onClick = { onCardClick(card.id) },
-                                onFavoriteToggle = {},
-                                showBarcode = showBarcodesInList
+                                onFavoriteToggle = null,
+                                showBarcode = showBarcodesInList,
+                                onEditClick = if (onEditCardClick != null) { { onEditCardClick(card.id) } } else null,
+                                onArchiveClick = if (onUnarchiveCardClick != null) { { onUnarchiveCardClick(card) } } else null,
+                                onDeleteClick = if (onDeleteCardClick != null) { { onDeleteCardClick(card) } } else null
                             )
                         }
                     }
