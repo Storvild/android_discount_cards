@@ -9,7 +9,7 @@
     <string name="settings_title">सेटिंग्स</string>
 
     <!-- Search & Menu -->
-    <string name="search_placeholder">स्टोर नाम से खोजें…</string>
+    <string name="search_placeholder">खोजें…</string>
     <string name="search_icon_desc">खोजें</string>
     <string name="clear_search_desc">खोज साफ़ करें</string>
     <string name="menu_options_desc">विकल्प मेनू</string>

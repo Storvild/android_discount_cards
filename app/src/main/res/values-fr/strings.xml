@@ -9,7 +9,7 @@
     <string name="settings_title">Paramètres</string>
 
     <!-- Search & Menu -->
-    <string name="search_placeholder">Rechercher par magasin…</string>
+    <string name="search_placeholder">Rechercher…</string>
     <string name="search_icon_desc">Rechercher</string>
     <string name="clear_search_desc">Effacer la recherche</string>
     <string name="menu_options_desc">Menu des options</string>

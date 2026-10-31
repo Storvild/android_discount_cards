@@ -9,7 +9,7 @@
     <string name="settings_title">设置</string>
 
     <!-- Search & Menu -->
-    <string name="search_placeholder">按商店名称搜索…</string>
+    <string name="search_placeholder">搜索…</string>
     <string name="search_icon_desc">搜索</string>
     <string name="clear_search_desc">清除搜索</string>
     <string name="menu_options_desc">选项菜单</string>

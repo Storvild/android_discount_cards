@@ -9,7 +9,7 @@
     <string name="settings_title">الإعدادات</string>
 
     <!-- Search & Menu -->
-    <string name="search_placeholder">البحث باسم المتجر…</string>
+    <string name="search_placeholder">بحث…</string>
     <string name="search_icon_desc">بحث</string>
     <string name="clear_search_desc">مسح البحث</string>
     <string name="menu_options_desc">قائمة الخيارات</string>

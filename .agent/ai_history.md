@@ -2284,3 +2284,9 @@ Agent:
 
 ### ✅ Статус сборки
 Проект успешно прошёл отладочную сборку (`./gradlew :app:assembleDebug`).
+
+---
+
+Agent:  
+Текст плейсхолдера для поля поиска в строковых ресурсах [`strings.xml`](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/res/values/strings.xml#L12) изменён с «Поиск по магазину…» на «Поиск…» (а также актуализирован во всех языковых локализациях).
+
