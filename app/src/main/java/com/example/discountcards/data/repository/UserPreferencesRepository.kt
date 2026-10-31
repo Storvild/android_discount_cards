@@ -39,7 +39,8 @@ enum class AppLanguage {
     HINDI,
     ARABIC,
     TURKISH,
-    CHINESE_SIMPLIFIED;
+    CHINESE_SIMPLIFIED,
+    ITALIAN;
 
     companion object {
         fun fromOrdinal(ordinal: Int): AppLanguage =
@@ -158,6 +159,7 @@ open class UserPreferencesRepository(private val context: Context? = null) {
             AppLanguage.ARABIC -> Locale("ar")
             AppLanguage.TURKISH -> Locale("tr")
             AppLanguage.CHINESE_SIMPLIFIED -> Locale.SIMPLIFIED_CHINESE
+            AppLanguage.ITALIAN -> Locale.ITALIAN
             AppLanguage.SYSTEM -> Locale.getDefault()
         }
         val config = Configuration(base.resources.configuration)

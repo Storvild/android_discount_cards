@@ -98,7 +98,7 @@ Sí. Para cada tarjeta puedes seleccionar un icono de categoría, un color de la
 - Si el código de barras está dañado o la cámara no puede leerlo, utiliza la función **«Seleccionar desde archivo»**, habiendo fotografiado previamente la tarjeta con la cámara estándar del teléfono.
 
 **¿Cómo cambiar el idioma de la aplicación?**  
-En los ajustes de la aplicación hay una opción independiente de «Idioma». Puedes elegir uno de los 11 idiomas compatibles (Ruso, English, Deutsch, Français, Español, Português, 日本語, 简体中文, العربية, Türkçe, हिन्दी) independientemente del idioma del sistema de tu smartphone.
+En los ajustes de la aplicación hay una opción independiente de «Idioma». Puedes elegir uno de los 12 idiomas compatibles (Ruso, English, Deutsch, Français, Español, Português, Italiano, 日本語, 简体中文, العربية, Türkçe, हिन्दी) independientemente del idioma del sistema de tu smartphone.
 
 ---
 

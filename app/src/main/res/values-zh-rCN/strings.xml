@@ -239,4 +239,10 @@
 
     <!-- Share Barcode -->
     <string name="share_barcode_button">分享条形码图片</string>
+    <string name="archived_badge">已归档</string>
+    <string name="duplicate_code_warning_title">该代码已存在</string>
+    <string name="duplicate_code_warning_message">该代码已存在。仍要添加吗？</string>
+    <string name="duplicate_code_warning_yes">仍要添加</string>
+    <string name="duplicate_code_warning_no">取消</string>
+    <string name="language_italian">Italiano</string>
 </resources>

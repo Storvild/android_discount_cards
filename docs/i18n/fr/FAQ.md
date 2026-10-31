@@ -98,7 +98,7 @@ Oui. Pour chaque carte, vous pouvez sélectionner une icône de catégorie, une 
 - Si le code-barres est endommagé ou que l'appareil photo échoue, utilisez la fonction **« Sélectionner depuis un fichier »** après avoir pris en photo la carte avec l'appareil photo standard du téléphone.
 
 **Comment changer la langue de l'application ?**  
-Dans les paramètres de l'application, il y a un élément séparé « Langue ». Vous pouvez choisir l'une des 11 langues prises en charge (Russe, English, Deutsch, Français, Español, Português, 日本語, 简体中文, العربية, Türkçe, हिन्दी) indépendamment de la langue système de votre smartphone.
+Dans les paramètres de l'application, il y a un élément séparé « Langue ». Vous pouvez choisir l'une des 12 langues prises en charge (Russe, English, Deutsch, Français, Español, Português, Italiano, 日本語, 简体中文, العربية, Türkçe, हिन्दी) indépendamment de la langue système de votre smartphone.
 
 ---
 

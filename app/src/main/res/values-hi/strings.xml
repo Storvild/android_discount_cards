@@ -239,4 +239,10 @@
 
     <!-- Share Barcode -->
     <string name="share_barcode_button">बारकोड छवि साझा करें</string>
+    <string name="archived_badge">आर्काइव्ड</string>
+    <string name="duplicate_code_warning_title">कोड पहले से मौजूद है</string>
+    <string name="duplicate_code_warning_message">ऐसा कोड पहले से मौजूद है। फिर भी जोड़ें?</string>
+    <string name="duplicate_code_warning_yes">फिर भी जोड़ें</string>
+    <string name="duplicate_code_warning_no">रद्द करें</string>
+    <string name="language_italian">Italiano</string>
 </resources>

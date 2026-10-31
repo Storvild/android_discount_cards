@@ -245,4 +245,5 @@
 
     <!-- Share Barcode -->
     <string name="share_barcode_button">Поделиться картинкой штрихкода</string>
+    <string name="language_italian">Italiano</string>
 </resources>

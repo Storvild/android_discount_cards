@@ -239,4 +239,10 @@
 
     <!-- Share Barcode -->
     <string name="share_barcode_button">Barkod görselini paylaş</string>
+    <string name="archived_badge">arşivlendi</string>
+    <string name="duplicate_code_warning_title">Kod zaten var</string>
+    <string name="duplicate_code_warning_message">Bu kod zaten var. Yine de eklensin mi?</string>
+    <string name="duplicate_code_warning_yes">Yine de ekle</string>
+    <string name="duplicate_code_warning_no">İptal</string>
+    <string name="language_italian">Italiano</string>
 </resources>

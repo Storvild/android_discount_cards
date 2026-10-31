@@ -244,4 +244,6 @@
 
     <!-- Share Barcode -->
     <string name="share_barcode_button">Share barcode image</string>
+    <string name="archived_badge">archived</string>
+    <string name="language_italian">Italiano</string>
 </resources>

@@ -98,7 +98,7 @@ Yes. For each card, you can select a category icon, a color from the palette, or
 - If the barcode is damaged or the camera fails, use the **"Select from file"** feature after taking a picture of the card with the standard phone camera.
 
 **How to change the app language?**  
-In the app settings, there is a separate "Language" item. You can choose one of 11 supported languages (Russian, English, Deutsch, Français, Español, Português, 日本語, 简体中文, العربية, Türkçe, हिन्दी) independently of your smartphone's system language.
+In the app settings, there is a separate "Language" item. You can choose one of 12 supported languages (Russian, English, Deutsch, Français, Español, Português, Italiano, 日本語, 简体中文, العربية, Türkçe, हिन्दी) independently of your smartphone's system language.
 
 ---
 

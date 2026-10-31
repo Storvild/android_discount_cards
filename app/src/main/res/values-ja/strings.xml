@@ -239,4 +239,10 @@
 
     <!-- Share Barcode -->
     <string name="share_barcode_button">バーコード画像を共有</string>
+    <string name="archived_badge">アーカイブ済み</string>
+    <string name="duplicate_code_warning_title">コードは既に存在します</string>
+    <string name="duplicate_code_warning_message">このコードは既に存在します。それでも追加しますか？</string>
+    <string name="duplicate_code_warning_yes">それでも追加</string>
+    <string name="duplicate_code_warning_no">キャンセル</string>
+    <string name="language_italian">Italiano</string>
 </resources>

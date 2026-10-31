@@ -98,7 +98,7 @@ Ja. Für jede Karte können Sie ein Kategorie-Symbol, eine Farbe aus der Palette
 - Wenn der Barcode beschädigt ist oder die Kamera versagt, nutzen Sie die Funktion **„Aus Datei auswählen“**, nachdem Sie die Karte mit der normalen Telefonkamera fotografiert haben.
 
 **Wie ändere ich die Sprache der App?**  
-In den App-Einstellungen gibt es einen eigenen Punkt „Sprache“. Sie können eine der 11 unterstützten Sprachen (Russisch, English, Deutsch, Français, Español, Português, 日本語, 简体中文, العربية, Türkçe, हिन्दी) unabhängig von der System-Sprache Ihres Smartphones wählen.
+In den App-Einstellungen gibt es einen eigenen Punkt „Sprache“. Sie können eine der 12 unterstützten Sprachen (Russisch, English, Deutsch, Français, Español, Português, Italiano, 日本語, 简体中文, العربية, Türkçe, हिन्दी) unabhängig von der System-Sprache Ihres Smartphones wählen.
 
 ---
 

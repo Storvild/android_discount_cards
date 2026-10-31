@@ -131,6 +131,7 @@ fun SettingsScreen(
                         AppLanguage.ARABIC -> stringResource(R.string.language_arabic)
                         AppLanguage.TURKISH -> stringResource(R.string.language_turkish)
                         AppLanguage.CHINESE_SIMPLIFIED -> stringResource(R.string.language_chinese_simplified)
+                        AppLanguage.ITALIAN -> stringResource(R.string.language_italian)
                     }
 
                     ExposedDropdownMenuBox(
@@ -167,7 +168,8 @@ fun SettingsScreen(
                                 AppLanguage.HINDI to R.string.language_hindi,
                                 AppLanguage.ARABIC to R.string.language_arabic,
                                 AppLanguage.TURKISH to R.string.language_turkish,
-                                AppLanguage.CHINESE_SIMPLIFIED to R.string.language_chinese_simplified
+                                AppLanguage.CHINESE_SIMPLIFIED to R.string.language_chinese_simplified,
+                                AppLanguage.ITALIAN to R.string.language_italian
                             )
                             languages.forEach { (lang, stringRes) ->
                                 DropdownMenuItem(

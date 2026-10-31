@@ -239,4 +239,10 @@
 
     <!-- Share Barcode -->
     <string name="share_barcode_button">مشاركة صورة الشريط</string>
+    <string name="archived_badge">مؤرشف</string>
+    <string name="duplicate_code_warning_title">الكود موجود بالفعل</string>
+    <string name="duplicate_code_warning_message">هذا الكود موجود بالفعل. هل تريد الإضافة على أي حال؟</string>
+    <string name="duplicate_code_warning_yes">إضافة على أي حال</string>
+    <string name="duplicate_code_warning_no">إلغاء</string>
+    <string name="language_italian">Italiano</string>
 </resources>

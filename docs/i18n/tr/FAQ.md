@@ -98,7 +98,7 @@ Evet. Her kart için bir kategori simgesi, paletten renk seçebilir veya tam HEX
 - Barkod hasarlıysa veya kamera yetersiz kalırsa, kartı telefonun standart kamerasıyla fotoğrafladıktan sonra **«Dosyadan seç»** işlevini kullanın.
 
 **Uygulama dili nasıl değiştirilir?**  
-Uygulama ayarlarında ayrı bir «Dil» öğesi vardır. Akıllı telefonunuzun sistem dilinden bağımsız olarak desteklenen 11 dilden birini (Rusça, English, Deutsch, Français, Español, Português, 日本語, 简体中文, العربية, Türkçe, हिन्दी) seçebilirsiniz.
+Uygulama ayarlarında ayrı bir «Dil» öğesi vardır. Akıllı telefonunuzun sistem dilinden bağımsız olarak desteklenen 12 dilden birini (Rusça, English, Deutsch, Français, Español, Português, Italiano, 日本語, 简体中文, العربية, Türkçe, हिन्दी) seçebilirsiniz.
 
 ---
 

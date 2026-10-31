@@ -239,4 +239,10 @@
 
     <!-- Share Barcode -->
     <string name="share_barcode_button">Compartir imagen del código de barras</string>
+    <string name="archived_badge">archivado</string>
+    <string name="duplicate_code_warning_title">El código ya existe</string>
+    <string name="duplicate_code_warning_message">Este código ya existe. ¿Añadir de todos modos?</string>
+    <string name="duplicate_code_warning_yes">Añadir de todos modos</string>
+    <string name="duplicate_code_warning_no">Cancelar</string>
+    <string name="language_italian">Italiano</string>
 </resources>
