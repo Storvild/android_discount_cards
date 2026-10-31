@@ -232,6 +232,8 @@
     <string name="widget_settings_desc">Paramètres du widget</string>
     <string name="widget_edit_note">Pour modifier, appuyez sur le bouton invisible dans le coin supérieur droit du widget.</string>
     <string name="card_action_edit">Modifier</string>
+    <string name="card_action_share">Partager…</string>
+    <string name="card_action_archive">Archiver</string>
     <string name="card_action_delete">Supprimer</string>
     <string name="card_actions_title">Actions de la carte</string>
 

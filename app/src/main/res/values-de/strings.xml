@@ -232,6 +232,8 @@
     <string name="widget_settings_desc">Widget-Einstellungen</string>
     <string name="widget_edit_note">Zum Bearbeiten tippen Sie auf die unsichtbare Schaltfläche oben rechts auf dem Widget.</string>
     <string name="card_action_edit">Bearbeiten</string>
+    <string name="card_action_share">Teilen…</string>
+    <string name="card_action_archive">Ins Archiv</string>
     <string name="card_action_delete">Löschen</string>
     <string name="card_actions_title">Kartenaktionen</string>
 

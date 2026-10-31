@@ -231,6 +231,8 @@
     <string name="widget_settings_desc">Widget Settings</string>
     <string name="widget_edit_note">To edit, tap the invisible button in the top right corner of the widget.</string>
     <string name="card_action_edit">Edit</string>
+    <string name="card_action_share">Share…</string>
+    <string name="card_action_archive">Archive</string>
     <string name="card_action_delete">Delete</string>
     <string name="card_actions_title">Card Actions</string>
 

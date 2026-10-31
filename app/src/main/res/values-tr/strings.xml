@@ -232,6 +232,8 @@
     <string name="widget_settings_desc">Widget Ayarları</string>
     <string name="widget_edit_note">Düzenlemek için widget\'ın sağ üst köşesindeki görünmez düğmeye dokunun.</string>
     <string name="card_action_edit">Düzenle</string>
+    <string name="card_action_share">Paylaş…</string>
+    <string name="card_action_archive">Arşive</string>
     <string name="card_action_delete">Sil</string>
     <string name="card_actions_title">Kart İşlemleri</string>
 

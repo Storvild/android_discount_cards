@@ -276,4 +276,48 @@ class CardListViewModelTest {
         assertEquals(true, state.selectedExportCardIds.contains(1L))
     }
 
+    @Test
+    fun testArchiveCard() = runTest {
+        val dao = FakeDao()
+        val card = DiscountCard(id = 1, storeName = "Magnit", cardNumber = "55555", barcodeFormat = "CODE_128")
+        dao.cards.add(card)
+
+        val repository = CardRepositoryImpl(dao)
+        val viewModel = CardListViewModel(repository)
+
+        backgroundScope.launch { viewModel.uiState.collect {} }
+        advanceUntilIdle()
+
+        viewModel.archiveCard(card)
+        advanceUntilIdle()
+
+        val msg = viewModel.uiState.value.userMessage
+        assertEquals("ARCHIVED_SUCCESS", msg)
+        val updatedCard = dao.cards.find { it.id == 1L }
+        assertNotNull(updatedCard)
+        assertEquals(true, updatedCard?.isArchived)
+    }
+
+    @Test
+    fun testPrepareShareSingleCard() = runTest {
+        val dao = FakeDao()
+        val card1 = DiscountCard(id = 1, storeName = "Magnit", cardNumber = "55555", barcodeFormat = "CODE_128")
+        val card2 = DiscountCard(id = 2, storeName = "Perekrestok", cardNumber = "66666", barcodeFormat = "EAN_13")
+        dao.cards.add(card1)
+        dao.cards.add(card2)
+
+        val repository = CardRepositoryImpl(dao)
+        val viewModel = CardListViewModel(repository)
+
+        backgroundScope.launch { viewModel.uiState.collect {} }
+        advanceUntilIdle()
+
+        viewModel.prepareShareSelection(card1)
+        advanceUntilIdle()
+
+        val state = viewModel.uiState.value
+        assertEquals(true, state.showShareSelectionDialog)
+        assertEquals(1, state.selectedShareCardIds.size)
+        assertEquals(true, state.selectedShareCardIds.contains(1L))
+    }
 }

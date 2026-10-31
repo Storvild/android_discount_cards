@@ -232,6 +232,8 @@
     <string name="widget_settings_desc">إعدادات الأداة</string>
     <string name="widget_edit_note">لتعديل، اضغط على الزر الخفي في الزاوية العلوية اليمنى للأداة.</string>
     <string name="card_action_edit">تعديل</string>
+    <string name="card_action_share">مشاركة…</string>
+    <string name="card_action_archive">إلى الأرشيف</string>
     <string name="card_action_delete">حذف</string>
     <string name="card_actions_title">إجراءات البطاقة</string>
 

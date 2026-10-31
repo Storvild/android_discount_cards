@@ -232,6 +232,8 @@
     <string name="widget_settings_desc">Configurações do widget</string>
     <string name="widget_edit_note">Para editar, toque no botão invisível no canto superior direito do widget.</string>
     <string name="card_action_edit">Editar</string>
+    <string name="card_action_share">Compartilhar…</string>
+    <string name="card_action_archive">Arquivar</string>
     <string name="card_action_delete">Excluir</string>
     <string name="card_actions_title">Ações do cartão</string>
 

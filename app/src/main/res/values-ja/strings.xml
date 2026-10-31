@@ -232,6 +232,8 @@
     <string name="widget_settings_desc">ウィジェットの設定</string>
     <string name="widget_edit_note">編集するには、ウィジェットの右上隅にある非表示のボタンをタップします。</string>
     <string name="card_action_edit">編集</string>
+    <string name="card_action_share">共有…</string>
+    <string name="card_action_archive">アーカイブへ</string>
     <string name="card_action_delete">削除</string>
     <string name="card_actions_title">カードのアクション</string>
 

@@ -125,6 +125,7 @@ fun CardListScreen(
                     val detail = msg.removePrefix("DELETE_FAILED:")
                     resources.getString(R.string.delete_cards_error, detail)
                 }
+                msg == "ARCHIVED_SUCCESS" -> resources.getString(R.string.archived_message)
                 else -> msg
             }
             Toast.makeText(context, displayMsg, Toast.LENGTH_SHORT).show()
@@ -208,6 +209,8 @@ fun CardListScreen(
                                 onFavoriteToggle = { viewModel.toggleFavorite(card.id, card.isFavorite) },
                                 showBarcode = showBarcodesInList,
                                 onEditClick = { onEditCardClick(card.id) },
+                                onShareClick = { viewModel.prepareShareSelection(card) },
+                                onArchiveClick = { viewModel.archiveCard(card) },
                                 onDeleteClick = { viewModel.deleteCard(card) }
                             )
                         }

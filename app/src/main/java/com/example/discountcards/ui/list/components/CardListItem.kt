@@ -19,11 +19,13 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Archive
 import androidx.compose.material.icons.outlined.CreditCard
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.Phone
 import androidx.compose.material.icons.outlined.QrCode
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CardDefaults
@@ -68,6 +70,8 @@ fun CardListItem(
     onFavoriteToggle: (() -> Unit)? = null,
     showBarcode: Boolean = true,
     onEditClick: (() -> Unit)? = null,
+    onShareClick: (() -> Unit)? = null,
+    onArchiveClick: (() -> Unit)? = null,
     onDeleteClick: (() -> Unit)? = null
 ) {
     val cardColor = Color(card.cardColor)
@@ -282,42 +286,90 @@ fun CardListItem(
             title = { Text(card.storeName) },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    TextButton(
-                        onClick = {
-                            showActionsDialog = false
-                            onEditClick?.invoke()
-                        },
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Start,
-                            verticalAlignment = Alignment.CenterVertically
+                    if (onEditClick != null) {
+                        TextButton(
+                            onClick = {
+                                showActionsDialog = false
+                                onEditClick.invoke()
+                            },
+                            modifier = Modifier.fillMaxWidth()
                         ) {
-                            Icon(Icons.Outlined.Edit, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
-                            Spacer(modifier = Modifier.width(16.dp))
-                            Text(stringResource(R.string.card_action_edit), style = MaterialTheme.typography.bodyLarge)
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.Start,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(Icons.Outlined.Edit, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                                Spacer(modifier = Modifier.width(16.dp))
+                                Text(stringResource(R.string.card_action_edit), style = MaterialTheme.typography.bodyLarge)
+                            }
                         }
                     }
-                    TextButton(
-                        onClick = {
-                            showActionsDialog = false
-                            onDeleteClick?.invoke()
-                        },
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Start,
-                            verticalAlignment = Alignment.CenterVertically
+                    if (onShareClick != null) {
+                        TextButton(
+                            onClick = {
+                                showActionsDialog = false
+                                onShareClick.invoke()
+                            },
+                            modifier = Modifier.fillMaxWidth()
                         ) {
-                            Icon(Icons.Outlined.Delete, contentDescription = null, tint = MaterialTheme.colorScheme.error)
-                            Spacer(modifier = Modifier.width(16.dp))
-                            Text(
-                                stringResource(R.string.card_action_delete),
-                                style = MaterialTheme.typography.bodyLarge,
-                                color = MaterialTheme.colorScheme.error
-                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.Start,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(Icons.Outlined.Share, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                                Spacer(modifier = Modifier.width(16.dp))
+                                Text(stringResource(R.string.card_action_share), style = MaterialTheme.typography.bodyLarge)
+                            }
+                        }
+                    }
+                    if (onArchiveClick != null) {
+                        TextButton(
+                            onClick = {
+                                showActionsDialog = false
+                                onArchiveClick.invoke()
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.Start,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(Icons.Outlined.Archive, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                                Spacer(modifier = Modifier.width(16.dp))
+                                Text(
+                                    stringResource(
+                                        if (card.isArchived) R.string.restore_from_archive_action
+                                        else R.string.card_action_archive
+                                    ),
+                                    style = MaterialTheme.typography.bodyLarge
+                                )
+                            }
+                        }
+                    }
+                    if (onDeleteClick != null) {
+                        TextButton(
+                            onClick = {
+                                showActionsDialog = false
+                                onDeleteClick.invoke()
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.Start,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(Icons.Outlined.Delete, contentDescription = null, tint = MaterialTheme.colorScheme.error)
+                                Spacer(modifier = Modifier.width(16.dp))
+                                Text(
+                                    stringResource(R.string.card_action_delete),
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    color = MaterialTheme.colorScheme.error
+                                )
+                            }
                         }
                     }
                 }

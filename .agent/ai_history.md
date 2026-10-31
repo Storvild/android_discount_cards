@@ -2290,3 +2290,30 @@ Agent:
 Agent:  
 Текст плейсхолдера для поля поиска в строковых ресурсах [`strings.xml`](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/res/values/strings.xml#L12) изменён с «Поиск по магазину…» на «Поиск…» (а также актуализирован во всех языковых локализациях).
 
+---
+
+В контекстное меню долгого нажатия на карточку на главном экране добавлены пункты **«Поделиться…»** и **«В архив»** (перед пунктом **«Удалить»**).
+
+### Внесённые изменения:
+
+1. **Строковые ресурсы и локализация**:
+   - Добавлены ключевые строки `card_action_share` ("Поделиться…") и `card_action_archive` ("В архив") в базовый `strings.xml` и все 10 локализаций (`values-en`, `values-de`, `values-es`, `values-fr`, `values-ar`, `values-hi`, `values-ja`, `values-pt`, `values-tr`, `values-zh-rCN`).
+
+2. **[CardListItem.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/list/components/CardListItem.kt)**:
+   - В `CardListItem` добавлены параметры `onShareClick` и `onArchiveClick`.
+   - В диалоге контекстного меню настроен вывод пунктов в следующем порядке:
+     1. **Редактировать** (`Icons.Outlined.Edit`)
+     2. **Поделиться…** (`Icons.Outlined.Share`)
+     3. **В архив** (`Icons.Outlined.Archive`)
+     4. **Удалить** (`Icons.Outlined.Delete`)
+
+3. **[CardListViewModel.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/list/CardListViewModel.kt)**:
+   - Добавлен метод `archiveCard(card: DiscountCard)` для перемещения карточки в архив с уведомлением пользователя.
+   - Обновлен метод `prepareShareSelection(card: DiscountCard? = null)`, подставляющий выбранную карту в диалог поделиться.
+
+4. **[CardListScreen.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/list/CardListScreen.kt)**:
+   - Переданы обработчики `onShareClick` и `onArchiveClick` в компонент `CardListItem`.
+   - Добавлен показ Toast-сообщения «Карточка перенесена в архив» при архивации.
+
+5. **Тестирование**:
+   - В [CardListViewModelTest.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/test/java/com/example/discountcards/ui/list/CardListViewModelTest.kt) добавлены юнит-тесты `testArchiveCard` и `testPrepareShareSingleCard`. Проект успешно собирается и проходит все 57 юнит-тестов.

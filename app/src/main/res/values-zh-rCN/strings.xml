@@ -232,6 +232,8 @@
     <string name="widget_settings_desc">小部件设置</string>
     <string name="widget_edit_note">要进行编辑，请点击小部件右上角的隐形按钮。</string>
     <string name="card_action_edit">编辑</string>
+    <string name="card_action_share">分享…</string>
+    <string name="card_action_archive">归档</string>
     <string name="card_action_delete">删除</string>
     <string name="card_actions_title">卡片操作</string>
 

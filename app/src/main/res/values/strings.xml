@@ -232,6 +232,8 @@
     <string name="widget_settings_desc">Настройки виджета</string>
     <string name="widget_edit_note">Для редактирования нажмите на невидимую кнопку в верхнем правом углу виджета.</string>
     <string name="card_action_edit">Редактировать</string>
+    <string name="card_action_share">Поделиться…</string>
+    <string name="card_action_archive">В архив</string>
     <string name="card_action_delete">Удалить</string>
     <string name="card_actions_title">Действия с картой</string>
 

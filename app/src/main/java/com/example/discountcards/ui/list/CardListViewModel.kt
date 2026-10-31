@@ -264,7 +264,7 @@ class CardListViewModel(
     }
 
     // Share Selection Methods
-    fun prepareShareSelection() {
+    fun prepareShareSelection(card: DiscountCard? = null) {
         viewModelScope.launch {
             val allCards = repository.getAllCardsIncludingArchived().first()
             if (allCards.isEmpty()) {
@@ -272,8 +272,12 @@ class CardListViewModel(
                 return@launch
             }
             shareSelectionCards.value = allCards
-            // Select only non-archived cards by default
-            selectedShareCardIds.value = allCards.filter { !it.isArchived }.map { it.id }.toSet()
+            if (card != null) {
+                selectedShareCardIds.value = setOf(card.id)
+            } else {
+                // Select only non-archived cards by default
+                selectedShareCardIds.value = allCards.filter { !it.isArchived }.map { it.id }.toSet()
+            }
             shareIncludeCvc.value = false
             shareIncludeUsageCount.value = false
             showShareSelectionDialog.value = true
@@ -578,6 +582,17 @@ class CardListViewModel(
                 userMessage.value = "DELETE_SUCCESS:1"
             }.onFailure { e ->
                 userMessage.value = "DELETE_FAILED:${e.localizedMessage ?: "Error"}"
+            }
+        }
+    }
+
+    fun archiveCard(card: DiscountCard) {
+        viewModelScope.launch {
+            runCatching {
+                repository.setArchived(card.id, true)
+                userMessage.value = "ARCHIVED_SUCCESS"
+            }.onFailure { e ->
+                userMessage.value = "ARCHIVE_FAILED:${e.localizedMessage ?: "Error"}"
             }
         }
     }
