@@ -2548,3 +2548,28 @@ Agent:
 3. **USER_GUID.md** (все языковые версии):
    - **Глава 2 (Добавление карт):** Инструкции по использованию функций **«Массовое сканирование…»** и **«Массовое добавление из изображений…»**.
    - **Глава 6 (Резервное копирование):** Обновлена навигация для выполнения экспорта и импорта данных через меню **Инструменты** главной страницы.
+
+---
+
+Ошибка сборки.
+
+* Строка `duplicate_code_warning_message` была объявлена в файлах локализаций (в `values-it`, `values-de`, `values-fr`, `values-ar`, `values-es` и других), но **отсутствовала в базовом/дефолтном файле ресурсов** [`values/strings.xml`](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/res/values/strings.xml).
+* В Android при сборке релизного APK (`assembleRelease`) автоматически запускается проверка `lintVitalRelease`. Ошибка `ExtraTranslation` является фатальной (fatal error), потому что если приложение запустится на устройстве с языком без перевода, обращение к `R.string.duplicate_code_warning_message` приведет к сбою (крашу) `Resources$NotFoundException`.
+
+---
+
+### 2. Анализ кода
+
+При проверке кода выяснилось:
+1. Строка `duplicate_code_warning_message` — это устаревший ресурс, который **больше нигде не используется** в Kotlin-коде приложения (в [`AddEditCardScreen.kt`](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardScreen.kt) вместо него используются `duplicate_code_warning_exact`, `duplicate_code_warning_different_format`, `duplicate_code_warning_title` и др.).
+2. В теге `v1.1.9` эта строка случайно осталась в 10 локализованных файлах `strings.xml`, но отсутствовала в дефолтном `values/strings.xml`.
+
+---
+
+### 3. Выполненные исправления
+
+Поскольку строка `duplicate_code_warning_message` не используется в проекте:
+* Неиспользуемый ключ `duplicate_code_warning_message` полностью удалён из всех 12 файлов `strings.xml` (`values`, `values-en`, `values-ar`, `values-de`, `values-es`, `values-fr`, `values-hi`, `values-it`, `values-ja`, `values-pt`, `values-tr`, `values-zh-rCN`).
+* Проверка задачи `:app:lintVitalRelease` выполнена — сборка проходит успешно.
+
+После отправки (commit & push) этих изменений в ваш репозиторий сборка в GitHub Actions пройдет без ошибок.   
