@@ -2317,3 +2317,37 @@ Agent:
 
 5. **Тестирование**:
    - В [CardListViewModelTest.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/test/java/com/example/discountcards/ui/list/CardListViewModelTest.kt) добавлены юнит-тесты `testArchiveCard` и `testPrepareShareSingleCard`. Проект успешно собирается и проходит все 57 юнит-тестов.
+   
+---
+
+### 📋 Что было сделано:
+
+1. **Добавлена итальянская локализация интерфейса:**
+   - Создан файл ресурсов `app/src/main/res/values-it/strings.xml` со всеми 199 ключами на итальянском языке и экранированием спецсимволов.
+   - Добавлен пункт `ITALIAN` в `enum class AppLanguage` в `UserPreferencesRepository.kt`.
+   - Настроена маппинг локали (`Locale.ITALIAN`) и выбор итальянского языка в выпадающем меню настроек (`SettingsScreen.kt`).
+
+2. **Исправлены ошибки в документации:**
+   - В `FAQ.md` и `docs/i18n/ru/FAQ.md` исправлен некорректный фрагмент `हिन्ди` ➔ `हिन्दी`.
+   - В `docs/i18n/hi/README.md` исправлена русская вставка `масс-डिलीशन` ➔ `सामूहिक विलोपन`.
+   
+---
+
+Проблема с формой редактирования. При нажатии на Описании клавиатура закрывает это поле.
+
+### Что сделано:
+1. **Добавлен `.imePadding()`** в файл [AddEditCardScreen.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardScreen.kt#L160-L165):
+   ```kotlin
+   Column(
+       modifier = Modifier
+           .fillMaxSize()
+           .padding(paddingValues)
+           .imePadding() // <--- Добавлен отступ клавиатуры
+           .verticalScroll(rememberScrollState())
+           .padding(16.dp),
+       ...
+   )
+   ```
+
+---
+
