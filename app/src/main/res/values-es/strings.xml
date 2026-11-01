@@ -257,7 +257,6 @@
     <string name="share_barcode_button">Compartir imagen del código de barras</string>
     <string name="archived_badge">archivado</string>
     <string name="duplicate_code_warning_title">El código ya existe</string>
-    <string name="duplicate_code_warning_message">Este código ya existe. ¿Añadir de todos modos?</string>
     <string name="duplicate_code_warning_exact">Ya existe una tarjeta con el mismo código y formato de código de barras. ¿Aún quieres guardar una tarjeta duplicada?</string>
     <string name="duplicate_code_warning_different_format">Ya existe una tarjeta con este código, pero con un formato diferente (%1$s). ¿Aún quieres guardar la tarjeta?</string>
     <string name="duplicate_code_warning_yes">Guardar</string>

@@ -257,7 +257,6 @@
     <string name="share_barcode_button">Barkod görselini paylaş</string>
     <string name="archived_badge">arşivlendi</string>
     <string name="duplicate_code_warning_title">Kod zaten var</string>
-    <string name="duplicate_code_warning_message">Bu kod zaten var. Yine de eklensin mi?</string>
     <string name="duplicate_code_warning_exact">Aynı koda ve barkod biçimine sahip bir kart zaten var. Yine de yinelenen bir kart kaydetmek istiyor musunuz?</string>
     <string name="duplicate_code_warning_different_format">Bu koda sahip bir kart zaten var, ancak farklı bir biçimde (%1$s). Yine de kartı kaydetmek istiyor musunuz?</string>
     <string name="duplicate_code_warning_yes">Kaydet</string>

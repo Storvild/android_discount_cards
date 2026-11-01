@@ -257,7 +257,6 @@
     <string name="share_barcode_button">バーコード画像を共有</string>
     <string name="archived_badge">アーカイブ済み</string>
     <string name="duplicate_code_warning_title">コードは既に存在します</string>
-    <string name="duplicate_code_warning_message">このコードは既に存在します。それでも追加しますか？</string>
     <string name="duplicate_code_warning_exact">同じコードとバーコード形式のカードが既に存在します。重複カードを保存しますか？</string>
     <string name="duplicate_code_warning_different_format">このコードのカードは既に存在しますが、異なる形式（%1$s）です。カードを保存しますか？</string>
     <string name="duplicate_code_warning_yes">保存</string>

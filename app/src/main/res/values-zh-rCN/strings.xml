@@ -257,7 +257,6 @@
     <string name="share_barcode_button">分享条形码图片</string>
     <string name="archived_badge">已归档</string>
     <string name="duplicate_code_warning_title">该代码已存在</string>
-    <string name="duplicate_code_warning_message">该代码已存在。仍要添加吗？</string>
     <string name="duplicate_code_warning_exact">已存在具有相同代码和条形码格式的卡片。您仍要保存重复的卡片吗？</string>
     <string name="duplicate_code_warning_different_format">已存在具有此代码的卡片，但格式不同（%1$s）。您仍要保存该卡片吗？</string>
     <string name="duplicate_code_warning_yes">保存</string>

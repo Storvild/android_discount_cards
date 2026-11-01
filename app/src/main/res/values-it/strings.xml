@@ -209,7 +209,6 @@
     <string name="card_action_delete">Elimina</string>
     <string name="card_actions_title">Azioni carta</string>
     <string name="duplicate_code_warning_title">Il codice esiste già</string>
-    <string name="duplicate_code_warning_message">Questo codice esiste già. Aggiungere comunque?</string>
     <string name="duplicate_code_warning_exact">Esiste già una carta con lo stesso codice e formato di codice a barre. Vuoi comunque salvare una carta duplicata?</string>
     <string name="duplicate_code_warning_different_format">Esiste già una carta con questo codice, ma con un formato diverso (%1$s). Vuoi comunque salvare la carta?</string>
     <string name="duplicate_code_warning_yes">Salva</string>

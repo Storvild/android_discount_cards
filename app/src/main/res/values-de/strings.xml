@@ -257,7 +257,6 @@
     <string name="share_barcode_button">Barcode-Bild teilen</string>
     <string name="archived_badge">archiviert</string>
     <string name="duplicate_code_warning_title">Code bereits vorhanden</string>
-    <string name="duplicate_code_warning_message">Dieser Code existiert bereits. Trotzdem hinzufügen?</string>
     <string name="duplicate_code_warning_exact">Eine Karte mit demselben Code und Barcode-Format existiert bereits. Möchten Sie trotzdem ein Duplikat speichern?</string>
     <string name="duplicate_code_warning_different_format">Eine Karte mit diesem Code existiert bereits, jedoch mit einem anderen Barcode-Format (%1$s). Möchten Sie die Karte trotzdem speichern?</string>
     <string name="duplicate_code_warning_yes">Speichern</string>
