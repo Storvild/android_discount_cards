@@ -111,6 +111,8 @@
     <string name="created_at_label">बनाने की तिथि: %1$s</string>
     <string name="save_changes">बदलाव सहेजें</string>
     <string name="add_card_button">कार्ड जोड़ें</string>
+    <string name="card_saved_add_another">कार्ड सहेजा गया</string>
+    <string name="save_and_add_another_desc">सहेजें और एक और जोड़ें</string>
 
     <!-- Categories -->
     <string name="cat_store">स्टोर</string>
@@ -232,6 +234,7 @@
     <string name="widget_settings_desc">विजेट सेटिंग्स</string>
     <string name="widget_edit_note">संपादित करने के लिए, विजेट के ऊपरी दाएं कोने में अदृश्य बटन पर टैप करें।</string>
     <string name="card_action_edit">संपादित करें</string>
+    <string name="card_action_duplicate">कॉपी बनाएं…</string>
     <string name="card_action_share">साझा करें…</string>
     <string name="card_action_archive">संग्रह में</string>
     <string name="card_action_delete">हटाएं</string>
@@ -242,7 +245,9 @@
     <string name="archived_badge">आर्काइव्ड</string>
     <string name="duplicate_code_warning_title">कोड पहले से मौजूद है</string>
     <string name="duplicate_code_warning_message">ऐसा कोड पहले से मौजूद है। फिर भी जोड़ें?</string>
-    <string name="duplicate_code_warning_yes">फिर भी जोड़ें</string>
+    <string name="duplicate_code_warning_exact">समान कोड और बारकोड प्रारूप वाला कार्ड पहले से मौजूद है। क्या आप अभी भी डुप्लिकेट कार्ड सहेजना चाहते हैं?</string>
+    <string name="duplicate_code_warning_different_format">इस कोड वाला एक कार्ड पहले से मौजूद है, लेकिन भिन्न प्रारूप (%1$s) के साथ। क्या आप अभी भी कार्ड सहेजना चाहते हैं?</string>
+    <string name="duplicate_code_warning_yes">सहेजें</string>
     <string name="duplicate_code_warning_no">रद्द करें</string>
     <string name="language_italian">Italiano</string>
 </resources>

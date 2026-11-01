@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
@@ -24,6 +25,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.outlined.Notes
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.outlined.CreditCard
@@ -53,18 +55,22 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -101,6 +107,28 @@ fun AddEditCardScreen(
         }
     }
 
+    var cardNumberTextFieldValue by remember {
+        mutableStateOf(TextFieldValue(uiState.cardNumber))
+    }
+
+    LaunchedEffect(uiState.cardNumber) {
+        if (uiState.cardNumber != cardNumberTextFieldValue.text) {
+            cardNumberTextFieldValue = TextFieldValue(
+                text = uiState.cardNumber,
+                selection = TextRange(uiState.cardNumber.length)
+            )
+        }
+    }
+
+    LaunchedEffect(uiState.selectCardNumberTrigger) {
+        if (uiState.selectCardNumberTrigger > 0L) {
+            cardNumberTextFieldValue = TextFieldValue(
+                text = uiState.cardNumber,
+                selection = TextRange(uiState.cardNumber.length)
+            )
+        }
+    }
+
     LaunchedEffect(uiState.isSaved) {
         if (uiState.isSaved) {
             onSaveSuccess()
@@ -113,6 +141,7 @@ fun AddEditCardScreen(
                 "ERROR_STORE_NAME_EMPTY" -> resources.getString(R.string.error_store_name_empty)
                 "ERROR_CARD_NUMBER_EMPTY" -> resources.getString(R.string.error_card_number_empty)
                 "ERROR_BARCODE_NOT_FOUND" -> resources.getString(R.string.error_barcode_not_found)
+                "CARD_SAVED" -> resources.getString(R.string.card_saved_add_another)
                 else -> msg
             }
             snackbarHostState.showSnackbar(displayMsg)
@@ -218,8 +247,11 @@ fun AddEditCardScreen(
 
                 // Card Number Input with Camera & Gallery Scan Buttons
                 OutlinedTextField(
-                    value = uiState.cardNumber,
-                    onValueChange = viewModel::onCardNumberChanged,
+                    value = cardNumberTextFieldValue,
+                    onValueChange = { newValue ->
+                        cardNumberTextFieldValue = newValue
+                        viewModel.onCardNumberChanged(newValue.text)
+                    },
                     label = { Text(stringResource(R.string.card_number_label)) },
                     placeholder = { Text(stringResource(R.string.card_number_placeholder)) },
                     leadingIcon = {
@@ -230,8 +262,11 @@ fun AddEditCardScreen(
                     },
                     trailingIcon = {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            if (uiState.cardNumber.isNotEmpty()) {
-                                IconButton(onClick = { viewModel.onCardNumberChanged("") }) {
+                            if (cardNumberTextFieldValue.text.isNotEmpty()) {
+                                IconButton(onClick = {
+                                    cardNumberTextFieldValue = TextFieldValue("")
+                                    viewModel.onCardNumberChanged("")
+                                }) {
                                     Icon(
                                         imageVector = Icons.Outlined.Clear,
                                         contentDescription = stringResource(R.string.clear_card_number)
@@ -387,30 +422,50 @@ fun AddEditCardScreen(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Submit / Save Button
-                Button(
-                    onClick = viewModel::saveCard,
-                    enabled = !uiState.isSaving,
-                    shape = RoundedCornerShape(12.dp),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(52.dp)
+                // Submit / Save Button Row with "+" Save & Add Another Button
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    if (uiState.isSaving) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(24.dp),
-                            color = MaterialTheme.colorScheme.onPrimary,
-                            strokeWidth = 2.dp
-                        )
-                    } else {
-                        Text(
-                            text = if (uiState.isEditMode) {
-                                stringResource(R.string.save_changes)
-                            } else {
-                                stringResource(R.string.add_card_button)
-                            },
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold
+                    Button(
+                        onClick = viewModel::saveCard,
+                        enabled = !uiState.isSaving,
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(52.dp)
+                    ) {
+                        if (uiState.isSaving) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(24.dp),
+                                color = MaterialTheme.colorScheme.onPrimary,
+                                strokeWidth = 2.dp
+                            )
+                        } else {
+                            Text(
+                                text = if (uiState.isEditMode) {
+                                    stringResource(R.string.save_changes)
+                                } else {
+                                    stringResource(R.string.add_card_button)
+                                },
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+
+                    Button(
+                        onClick = viewModel::saveAndAddAnother,
+                        enabled = !uiState.isSaving,
+                        shape = RoundedCornerShape(12.dp),
+                        contentPadding = PaddingValues(0.dp),
+                        modifier = Modifier.size(52.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Add,
+                            contentDescription = stringResource(R.string.save_and_add_another_desc),
+                            modifier = Modifier.size(24.dp)
                         )
                     }
                 }
@@ -432,10 +487,20 @@ fun AddEditCardScreen(
 
     // Duplicate Code Warning Dialog
     if (uiState.showDuplicateWarningDialog) {
+        val warningMessage = when (uiState.duplicateWarningType) {
+            DuplicateWarningType.DIFFERENT_FORMAT -> {
+                val formatName = getFormatDisplayName(uiState.existingDuplicateFormat)
+                stringResource(R.string.duplicate_code_warning_different_format, formatName)
+            }
+            else -> {
+                stringResource(R.string.duplicate_code_warning_exact)
+            }
+        }
+
         AlertDialog(
             onDismissRequest = viewModel::onDuplicateWarningDismissed,
             title = { Text(stringResource(R.string.duplicate_code_warning_title)) },
-            text = { Text(stringResource(R.string.duplicate_code_warning_message)) },
+            text = { Text(warningMessage) },
             confirmButton = {
                 TextButton(onClick = viewModel::onDuplicateWarningConfirmed) {
                     Text(stringResource(R.string.duplicate_code_warning_yes))

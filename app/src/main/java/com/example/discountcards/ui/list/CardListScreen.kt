@@ -50,6 +50,7 @@ fun CardListScreen(
     viewModel: CardListViewModel,
     onCardClick: (Long) -> Unit,
     onEditCardClick: (Long) -> Unit = {},
+    onDuplicateCardClick: (Long) -> Unit = {},
     onAddCardClick: () -> Unit,
     onArchiveClick: () -> Unit = {},
     onSettingsClick: () -> Unit,
@@ -209,6 +210,7 @@ fun CardListScreen(
                                 onFavoriteToggle = { viewModel.toggleFavorite(card.id, card.isFavorite) },
                                 showBarcode = showBarcodesInList,
                                 onEditClick = { onEditCardClick(card.id) },
+                                onDuplicateClick = { onDuplicateCardClick(card.id) },
                                 onShareClick = { viewModel.prepareShareSelection(card) },
                                 onArchiveClick = { viewModel.archiveCard(card) },
                                 onDeleteClick = { viewModel.deleteCard(card) }

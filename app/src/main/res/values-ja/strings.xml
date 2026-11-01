@@ -111,6 +111,8 @@
     <string name="created_at_label">作成日: %1$s</string>
     <string name="save_changes">変更を保存</string>
     <string name="add_card_button">カードを追加</string>
+    <string name="card_saved_add_another">カードを保存しました</string>
+    <string name="save_and_add_another_desc">保存してもう1つ追加</string>
 
     <!-- Categories -->
     <string name="cat_store">店舗</string>
@@ -232,6 +234,7 @@
     <string name="widget_settings_desc">ウィジェットの設定</string>
     <string name="widget_edit_note">編集するには、ウィジェットの右上隅にある非表示のボタンをタップします。</string>
     <string name="card_action_edit">編集</string>
+    <string name="card_action_duplicate">コピーを作成…</string>
     <string name="card_action_share">共有…</string>
     <string name="card_action_archive">アーカイブへ</string>
     <string name="card_action_delete">削除</string>
@@ -242,7 +245,9 @@
     <string name="archived_badge">アーカイブ済み</string>
     <string name="duplicate_code_warning_title">コードは既に存在します</string>
     <string name="duplicate_code_warning_message">このコードは既に存在します。それでも追加しますか？</string>
-    <string name="duplicate_code_warning_yes">それでも追加</string>
+    <string name="duplicate_code_warning_exact">同じコードとバーコード形式のカードが既に存在します。重複カードを保存しますか？</string>
+    <string name="duplicate_code_warning_different_format">このコードのカードは既に存在しますが、異なる形式（%1$s）です。カードを保存しますか？</string>
+    <string name="duplicate_code_warning_yes">保存</string>
     <string name="duplicate_code_warning_no">キャンセル</string>
     <string name="language_italian">Italiano</string>
 </resources>

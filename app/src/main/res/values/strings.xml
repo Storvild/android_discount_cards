@@ -110,6 +110,8 @@
     <string name="created_at_label">Дата создания: %1$s</string>
     <string name="save_changes">Сохранить изменения</string>
     <string name="add_card_button">Добавить карту</string>
+    <string name="card_saved_add_another">Карточка сохранена</string>
+    <string name="save_and_add_another_desc">Сохранить и добавить ещё</string>
 
     <!-- Categories -->
     <string name="cat_store">Магазин</string>
@@ -232,6 +234,7 @@
     <string name="widget_settings_desc">Настройки виджета</string>
     <string name="widget_edit_note">Для редактирования нажмите на невидимую кнопку в верхнем правом углу виджета.</string>
     <string name="card_action_edit">Редактировать</string>
+    <string name="card_action_duplicate">Создать копию…</string>
     <string name="card_action_share">Поделиться…</string>
     <string name="card_action_archive">В архив</string>
     <string name="card_action_delete">Удалить</string>
@@ -239,8 +242,9 @@
 
     <!-- Duplicate Code Warning -->
     <string name="duplicate_code_warning_title">Такой код уже существует</string>
-    <string name="duplicate_code_warning_message">Такой код уже существует. Все равно добавить?</string>
-    <string name="duplicate_code_warning_yes">Все равно добавить</string>
+    <string name="duplicate_code_warning_exact">Карточка с таким кодом и типом штрихкода уже существует. Вы все равно хотите сохранить дубликат карты?</string>
+    <string name="duplicate_code_warning_different_format">Карточка с таким кодом уже существует, но с другим типом штрихкода (%1$s). Вы все равно хотите сохранить карту?</string>
+    <string name="duplicate_code_warning_yes">Сохранить</string>
     <string name="duplicate_code_warning_no">Отмена</string>
 
     <!-- Share Barcode -->

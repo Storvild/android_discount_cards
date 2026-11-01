@@ -92,6 +92,8 @@
     <string name="created_at_label">Data di creazione: %1$s</string>
     <string name="save_changes">Salva modifiche</string>
     <string name="add_card_button">Aggiungi carta</string>
+    <string name="card_saved_add_another">Carta salvata</string>
+    <string name="save_and_add_another_desc">Salva e aggiungi un\'altra</string>
     <string name="cat_store">Negozio</string>
     <string name="cat_grocery">Alimentari</string>
     <string name="cat_pharmacy">Farmacia</string>
@@ -188,13 +190,16 @@
     <string name="widget_settings_desc">Impostazioni widget</string>
     <string name="widget_edit_note">Per modificare, tocca il pulsante invisibile nell\'angolo in alto a destra del widget.</string>
     <string name="card_action_edit">Modifica</string>
+    <string name="card_action_duplicate">Crea una copia…</string>
     <string name="card_action_share">Condividi…</string>
     <string name="card_action_archive">In archivio</string>
     <string name="card_action_delete">Elimina</string>
     <string name="card_actions_title">Azioni carta</string>
     <string name="duplicate_code_warning_title">Il codice esiste già</string>
     <string name="duplicate_code_warning_message">Questo codice esiste già. Aggiungere comunque?</string>
-    <string name="duplicate_code_warning_yes">Aggiungi comunque</string>
+    <string name="duplicate_code_warning_exact">Esiste già una carta con lo stesso codice e formato di codice a barre. Vuoi comunque salvare una carta duplicata?</string>
+    <string name="duplicate_code_warning_different_format">Esiste già una carta con questo codice, ma con un formato diverso (%1$s). Vuoi comunque salvare la carta?</string>
+    <string name="duplicate_code_warning_yes">Salva</string>
     <string name="duplicate_code_warning_no">Annulla</string>
     <string name="share_barcode_button">Condividi immagine codice a barre</string>
     <string name="language_italian">Italiano</string>

@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 class AddEditCardViewModel(
     private val repository: CardRepository,
     private val cardId: Long? = null,
+    private val duplicateFromId: Long? = null,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
 
@@ -29,6 +30,43 @@ class AddEditCardViewModel(
     init {
         if (cardId != null && cardId > 0) {
             loadCard(cardId)
+        } else if (duplicateFromId != null && duplicateFromId > 0) {
+            loadCardForDuplicate(duplicateFromId)
+        }
+    }
+
+    private fun loadCardForDuplicate(id: Long) {
+        viewModelScope.launch(ioDispatcher) {
+            _uiState.update { it.copy(isLoading = true) }
+            val card = repository.getCardByIdDirect(id)
+            if (card != null) {
+                _uiState.update {
+                    it.copy(
+                        storeName = card.storeName,
+                        cardNumber = card.cardNumber,
+                        barcodeFormat = card.barcodeFormat,
+                        cvc = card.cvc,
+                        note = card.note,
+                        cardColor = card.cardColor,
+                        iconName = card.iconName.ifBlank { "shopping_bag" },
+                        isFavorite = card.isFavorite,
+                        usageCount = 0,
+                        isArchived = false,
+                        createdAt = null,
+                        isLoading = false,
+                        isEditMode = false,
+                        cardId = null,
+                        selectCardNumberTrigger = System.currentTimeMillis()
+                    )
+                }
+            } else {
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        userMessage = "Card not found"
+                    )
+                }
+            }
         }
     }
 
@@ -146,16 +184,32 @@ class AddEditCardViewModel(
 
     fun onDuplicateWarningConfirmed() {
         val state = _uiState.value
+        val pendingAction = state.pendingSaveAction
+
         _uiState.update {
             it.copy(
-                cardNumber = state.pendingCardNumber,
-                barcodeFormat = state.pendingBarcodeFormat,
-                cardNumberError = null,
                 showDuplicateWarningDialog = false,
-                pendingCardNumber = "",
-                pendingBarcodeFormat = "",
-                userMessage = "Barcode recognized: ${state.pendingCardNumber}"
+                duplicateWarningType = DuplicateWarningType.NONE,
+                existingDuplicateFormat = "",
+                pendingSaveAction = PendingSaveAction.NONE
             )
+        }
+
+        if (pendingAction != PendingSaveAction.NONE) {
+            viewModelScope.launch(ioDispatcher) {
+                performSave(isAddAnother = (pendingAction == PendingSaveAction.SAVE_AND_ADD_ANOTHER))
+            }
+        } else if (state.pendingCardNumber.isNotBlank()) {
+            _uiState.update {
+                it.copy(
+                    cardNumber = state.pendingCardNumber,
+                    barcodeFormat = state.pendingBarcodeFormat,
+                    cardNumberError = null,
+                    pendingCardNumber = "",
+                    pendingBarcodeFormat = "",
+                    userMessage = "Barcode recognized: ${state.pendingCardNumber}"
+                )
+            }
         }
     }
 
@@ -163,6 +217,9 @@ class AddEditCardViewModel(
         _uiState.update {
             it.copy(
                 showDuplicateWarningDialog = false,
+                duplicateWarningType = DuplicateWarningType.NONE,
+                existingDuplicateFormat = "",
+                pendingSaveAction = PendingSaveAction.NONE,
                 pendingCardNumber = "",
                 pendingBarcodeFormat = ""
             )
@@ -201,7 +258,15 @@ class AddEditCardViewModel(
         }
     }
 
-    fun saveCard() {
+    fun saveCard(skipDuplicateCheck: Boolean = false) {
+        checkAndSaveCard(isAddAnother = false, skipDuplicateCheck = skipDuplicateCheck)
+    }
+
+    fun saveAndAddAnother(skipDuplicateCheck: Boolean = false) {
+        checkAndSaveCard(isAddAnother = true, skipDuplicateCheck = skipDuplicateCheck)
+    }
+
+    private fun checkAndSaveCard(isAddAnother: Boolean, skipDuplicateCheck: Boolean) {
         val currentState = _uiState.value
         val isStoreNameValid = currentState.storeName.isNotBlank()
         val isCardNumberValid = currentState.cardNumber.isNotBlank()
@@ -217,33 +282,91 @@ class AddEditCardViewModel(
         }
 
         viewModelScope.launch(ioDispatcher) {
-            _uiState.update { it.copy(isSaving = true) }
-            val card = DiscountCard(
-                id = currentState.cardId ?: 0,
-                storeName = currentState.storeName.trim(),
-                cardNumber = currentState.cardNumber.trim(),
-                barcodeFormat = currentState.barcodeFormat,
-                note = currentState.note.trim(),
-                cardColor = currentState.cardColor,
-                iconName = currentState.iconName,
-                isFavorite = currentState.isFavorite,
-                cvc = currentState.cvc,
-                usageCount = currentState.usageCount,
-                isArchived = currentState.isArchived,
-                createdAt = currentState.createdAt ?: System.currentTimeMillis(),
-                updatedAt = System.currentTimeMillis()
-            )
+            val cardNumber = currentState.cardNumber.trim()
+            val barcodeFormat = currentState.barcodeFormat
 
-            if (currentState.isEditMode) {
-                repository.updateCard(card)
-            } else {
-                repository.insertCard(card)
+            if (!skipDuplicateCheck) {
+                val existingCards = repository.getCardsByNumber(cardNumber)
+                    .filter { it.id != currentState.cardId }
+
+                if (existingCards.isNotEmpty()) {
+                    val exactMatch = existingCards.firstOrNull {
+                        it.barcodeFormat.equals(barcodeFormat, ignoreCase = true)
+                    }
+
+                    val warningType = if (exactMatch != null) {
+                        DuplicateWarningType.EXACT_DUPLICATE
+                    } else {
+                        DuplicateWarningType.DIFFERENT_FORMAT
+                    }
+
+                    val existingFormat = exactMatch?.barcodeFormat ?: existingCards.first().barcodeFormat
+
+                    _uiState.update {
+                        it.copy(
+                            showDuplicateWarningDialog = true,
+                            duplicateWarningType = warningType,
+                            existingDuplicateFormat = existingFormat,
+                            pendingSaveAction = if (isAddAnother) PendingSaveAction.SAVE_AND_ADD_ANOTHER else PendingSaveAction.SAVE
+                        )
+                    }
+                    return@launch
+                }
             }
 
+            performSave(isAddAnother = isAddAnother)
+        }
+    }
+
+    private suspend fun performSave(isAddAnother: Boolean) {
+        val currentState = _uiState.value
+        _uiState.update { it.copy(isSaving = true) }
+        val card = DiscountCard(
+            id = currentState.cardId ?: 0,
+            storeName = currentState.storeName.trim(),
+            cardNumber = currentState.cardNumber.trim(),
+            barcodeFormat = currentState.barcodeFormat,
+            note = currentState.note.trim(),
+            cardColor = currentState.cardColor,
+            iconName = currentState.iconName,
+            isFavorite = currentState.isFavorite,
+            cvc = currentState.cvc,
+            usageCount = currentState.usageCount,
+            isArchived = currentState.isArchived,
+            createdAt = currentState.createdAt ?: System.currentTimeMillis(),
+            updatedAt = System.currentTimeMillis()
+        )
+
+        if (currentState.isEditMode) {
+            repository.updateCard(card)
+        } else {
+            repository.insertCard(card)
+        }
+
+        if (isAddAnother) {
+            _uiState.update {
+                it.copy(
+                    cardId = null,
+                    isEditMode = false,
+                    isSaving = false,
+                    isSaved = false,
+                    createdAt = null,
+                    usageCount = 0,
+                    showDuplicateWarningDialog = false,
+                    duplicateWarningType = DuplicateWarningType.NONE,
+                    pendingSaveAction = PendingSaveAction.NONE,
+                    selectCardNumberTrigger = System.currentTimeMillis(),
+                    userMessage = "CARD_SAVED"
+                )
+            }
+        } else {
             _uiState.update {
                 it.copy(
                     isSaving = false,
-                    isSaved = true
+                    isSaved = true,
+                    showDuplicateWarningDialog = false,
+                    duplicateWarningType = DuplicateWarningType.NONE,
+                    pendingSaveAction = PendingSaveAction.NONE
                 )
             }
         }

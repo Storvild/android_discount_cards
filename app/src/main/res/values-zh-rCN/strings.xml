@@ -111,6 +111,8 @@
     <string name="created_at_label">创建时间: %1$s</string>
     <string name="save_changes">保存修改</string>
     <string name="add_card_button">添加卡片</string>
+    <string name="card_saved_add_another">卡片已保存</string>
+    <string name="save_and_add_another_desc">保存并添加另一张</string>
 
     <!-- Categories -->
     <string name="cat_store">商店</string>
@@ -232,6 +234,7 @@
     <string name="widget_settings_desc">小部件设置</string>
     <string name="widget_edit_note">要进行编辑，请点击小部件右上角的隐形按钮。</string>
     <string name="card_action_edit">编辑</string>
+    <string name="card_action_duplicate">创建副本…</string>
     <string name="card_action_share">分享…</string>
     <string name="card_action_archive">归档</string>
     <string name="card_action_delete">删除</string>
@@ -242,7 +245,9 @@
     <string name="archived_badge">已归档</string>
     <string name="duplicate_code_warning_title">该代码已存在</string>
     <string name="duplicate_code_warning_message">该代码已存在。仍要添加吗？</string>
-    <string name="duplicate_code_warning_yes">仍要添加</string>
+    <string name="duplicate_code_warning_exact">已存在具有相同代码和条形码格式的卡片。您仍要保存重复的卡片吗？</string>
+    <string name="duplicate_code_warning_different_format">已存在具有此代码的卡片，但格式不同（%1$s）。您仍要保存该卡片吗？</string>
+    <string name="duplicate_code_warning_yes">保存</string>
     <string name="duplicate_code_warning_no">取消</string>
     <string name="language_italian">Italiano</string>
 </resources>

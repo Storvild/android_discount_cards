@@ -20,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Archive
+import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.CreditCard
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Edit
@@ -70,6 +71,7 @@ fun CardListItem(
     onFavoriteToggle: (() -> Unit)? = null,
     showBarcode: Boolean = true,
     onEditClick: (() -> Unit)? = null,
+    onDuplicateClick: (() -> Unit)? = null,
     onShareClick: (() -> Unit)? = null,
     onArchiveClick: (() -> Unit)? = null,
     onDeleteClick: (() -> Unit)? = null
@@ -328,6 +330,25 @@ fun CardListItem(
                                 }
                             }
                         }
+                        if (onDuplicateClick != null) {
+                            TextButton(
+                                onClick = {
+                                    showActionsDialog = false
+                                    onDuplicateClick.invoke()
+                                },
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.Start,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Icon(Icons.Outlined.ContentCopy, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                                    Spacer(modifier = Modifier.width(16.dp))
+                                    Text(stringResource(R.string.card_action_duplicate), style = MaterialTheme.typography.bodyLarge)
+                                }
+                            }
+                        }
                         if (onShareClick != null) {
                             TextButton(
                                 onClick = {
@@ -387,6 +408,25 @@ fun CardListItem(
                                     Icon(Icons.Outlined.Edit, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
                                     Spacer(modifier = Modifier.width(16.dp))
                                     Text(stringResource(R.string.card_action_edit), style = MaterialTheme.typography.bodyLarge)
+                                }
+                            }
+                        }
+                        if (onDuplicateClick != null) {
+                            TextButton(
+                                onClick = {
+                                    showActionsDialog = false
+                                    onDuplicateClick.invoke()
+                                },
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.Start,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Icon(Icons.Outlined.ContentCopy, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                                    Spacer(modifier = Modifier.width(16.dp))
+                                    Text(stringResource(R.string.card_action_duplicate), style = MaterialTheme.typography.bodyLarge)
                                 }
                             }
                         }

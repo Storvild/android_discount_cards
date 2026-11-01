@@ -111,6 +111,8 @@
     <string name="created_at_label">Oluşturma tarihi: %1$s</string>
     <string name="save_changes">Değişiklikleri kaydet</string>
     <string name="add_card_button">Kart ekle</string>
+    <string name="card_saved_add_another">Kart kaydedildi</string>
+    <string name="save_and_add_another_desc">Kaydet ve başka ekle</string>
 
     <!-- Categories -->
     <string name="cat_store">Mağaza</string>
@@ -232,6 +234,7 @@
     <string name="widget_settings_desc">Widget Ayarları</string>
     <string name="widget_edit_note">Düzenlemek için widget\'ın sağ üst köşesindeki görünmez düğmeye dokunun.</string>
     <string name="card_action_edit">Düzenle</string>
+    <string name="card_action_duplicate">Kopya oluştur…</string>
     <string name="card_action_share">Paylaş…</string>
     <string name="card_action_archive">Arşive</string>
     <string name="card_action_delete">Sil</string>
@@ -242,7 +245,9 @@
     <string name="archived_badge">arşivlendi</string>
     <string name="duplicate_code_warning_title">Kod zaten var</string>
     <string name="duplicate_code_warning_message">Bu kod zaten var. Yine de eklensin mi?</string>
-    <string name="duplicate_code_warning_yes">Yine de ekle</string>
+    <string name="duplicate_code_warning_exact">Aynı koda ve barkod biçimine sahip bir kart zaten var. Yine de yinelenen bir kart kaydetmek istiyor musunuz?</string>
+    <string name="duplicate_code_warning_different_format">Bu koda sahip bir kart zaten var, ancak farklı bir biçimde (%1$s). Yine de kartı kaydetmek istiyor musunuz?</string>
+    <string name="duplicate_code_warning_yes">Kaydet</string>
     <string name="duplicate_code_warning_no">İptal</string>
     <string name="language_italian">Italiano</string>
 </resources>

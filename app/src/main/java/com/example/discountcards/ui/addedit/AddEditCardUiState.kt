@@ -1,5 +1,17 @@
 package com.example.discountcards.ui.addedit
 
+enum class DuplicateWarningType {
+    NONE,
+    EXACT_DUPLICATE,
+    DIFFERENT_FORMAT
+}
+
+enum class PendingSaveAction {
+    NONE,
+    SAVE,
+    SAVE_AND_ADD_ANOTHER
+}
+
 data class AddEditCardUiState(
     val cardId: Long? = null,
     val storeName: String = "",
@@ -21,7 +33,11 @@ data class AddEditCardUiState(
     val isEditMode: Boolean = false,
     val isCameraScannerOpen: Boolean = false,
     val showDuplicateWarningDialog: Boolean = false,
+    val duplicateWarningType: DuplicateWarningType = DuplicateWarningType.NONE,
+    val existingDuplicateFormat: String = "",
+    val pendingSaveAction: PendingSaveAction = PendingSaveAction.NONE,
     val pendingCardNumber: String = "",
     val pendingBarcodeFormat: String = "",
+    val selectCardNumberTrigger: Long = 0L,
     val userMessage: String? = null
 )

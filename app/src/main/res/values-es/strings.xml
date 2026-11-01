@@ -111,6 +111,8 @@
     <string name="created_at_label">Fecha de creación: %1$s</string>
     <string name="save_changes">Guardar cambios</string>
     <string name="add_card_button">Añadir tarjeta</string>
+    <string name="card_saved_add_another">Tarjeta guardada</string>
+    <string name="save_and_add_another_desc">Guardar y añadir otra</string>
 
     <!-- Categories -->
     <string name="cat_store">Tienda</string>
@@ -232,6 +234,7 @@
     <string name="widget_settings_desc">Ajustes del widget</string>
     <string name="widget_edit_note">Para editar, toca el botón invisible en la esquina superior derecha del widget.</string>
     <string name="card_action_edit">Editar</string>
+    <string name="card_action_duplicate">Crear una copia…</string>
     <string name="card_action_share">Compartir…</string>
     <string name="card_action_archive">Al archivo</string>
     <string name="card_action_delete">Eliminar</string>
@@ -242,7 +245,9 @@
     <string name="archived_badge">archivado</string>
     <string name="duplicate_code_warning_title">El código ya existe</string>
     <string name="duplicate_code_warning_message">Este código ya existe. ¿Añadir de todos modos?</string>
-    <string name="duplicate_code_warning_yes">Añadir de todos modos</string>
+    <string name="duplicate_code_warning_exact">Ya existe una tarjeta con el mismo código y formato de código de barras. ¿Aún quieres guardar una tarjeta duplicada?</string>
+    <string name="duplicate_code_warning_different_format">Ya existe una tarjeta con este código, pero con un formato diferente (%1$s). ¿Aún quieres guardar la tarjeta?</string>
+    <string name="duplicate_code_warning_yes">Guardar</string>
     <string name="duplicate_code_warning_no">Cancelar</string>
     <string name="language_italian">Italiano</string>
 </resources>

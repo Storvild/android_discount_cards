@@ -38,12 +38,13 @@ class CardDetailViewModelFactory(
 
 class AddEditCardViewModelFactory(
     private val repository: CardRepository,
-    private val cardId: Long? = null
+    private val cardId: Long? = null,
+    private val duplicateFromId: Long? = null
 ) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(AddEditCardViewModel::class.java)) {
-            return AddEditCardViewModel(repository, cardId) as T
+            return AddEditCardViewModel(repository, cardId, duplicateFromId) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

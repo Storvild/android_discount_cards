@@ -111,6 +111,8 @@
     <string name="created_at_label">Erstellungsdatum: %1$s</string>
     <string name="save_changes">Änderungen speichern</string>
     <string name="add_card_button">Karte hinzufügen</string>
+    <string name="card_saved_add_another">Karte gespeichert</string>
+    <string name="save_and_add_another_desc">Speichern und weitere hinzufügen</string>
 
     <!-- Categories -->
     <string name="cat_store">Geschäft</string>
@@ -232,6 +234,7 @@
     <string name="widget_settings_desc">Widget-Einstellungen</string>
     <string name="widget_edit_note">Zum Bearbeiten tippen Sie auf die unsichtbare Schaltfläche oben rechts auf dem Widget.</string>
     <string name="card_action_edit">Bearbeiten</string>
+    <string name="card_action_duplicate">Kopie erstellen…</string>
     <string name="card_action_share">Teilen…</string>
     <string name="card_action_archive">Ins Archiv</string>
     <string name="card_action_delete">Löschen</string>
@@ -242,7 +245,9 @@
     <string name="archived_badge">archiviert</string>
     <string name="duplicate_code_warning_title">Code bereits vorhanden</string>
     <string name="duplicate_code_warning_message">Dieser Code existiert bereits. Trotzdem hinzufügen?</string>
-    <string name="duplicate_code_warning_yes">Trotzdem hinzufügen</string>
+    <string name="duplicate_code_warning_exact">Eine Karte mit demselben Code und Barcode-Format existiert bereits. Möchten Sie trotzdem ein Duplikat speichern?</string>
+    <string name="duplicate_code_warning_different_format">Eine Karte mit diesem Code existiert bereits, jedoch mit einem anderen Barcode-Format (%1$s). Möchten Sie die Karte trotzdem speichern?</string>
+    <string name="duplicate_code_warning_yes">Speichern</string>
     <string name="duplicate_code_warning_no">Abbrechen</string>
     <string name="language_italian">Italiano</string>
 </resources>

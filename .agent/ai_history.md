@@ -2351,3 +2351,159 @@ Agent:
 
 ---
 
+Предложи, что добавить для более быстрого массового добавления штрихкодов? Например на главном экране по ПКИ на карточке - Копия, которая создаст новое редактирование со вставленными всеми полями. Или кнопка Сохранить и создать в редактировании карточки
+
+Обе ваши идеи отличные и закрывают основные сценарии быстрого добавления карт! Вот детальный разбор предложенных вами вариантов, а также несколько дополнительных функциональных решений для массового добавления штрихкодов в приложение **DiscountCards**.
+
+### 1. Предложенные вами варианты
+
+#### 💡 Вариант А: «Создать копию» (Дублирование по долгому нажатию / ПКИ)
+* **Сценарий UX:** Пользователь зажимает карту в списке ([CardListItem.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/list/components/CardListItem.kt)) или на экране деталей. В меню появляется пункт **«Создать копию»** (или «Дублировать»).
+* **Как работает:**
+  1. Открывается экран добавления карты [AddEditCardScreen.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardScreen.kt).
+  2. Все свойства карты предзаполняются: *Название магазина*, *Цвет*, *Иконка*, *Формат штрихкода*, *Примечание*, *CVC*.
+  3. Поле *Номер карты* остается пустым, и фокус сразу устанавливается в него (или автоматически открывается камерный сканер).
+* **Для чего полезно:** Добавление нескольких карт одного и того же магазина (например, семейные карты, накопительные карты родственников, подарочные купоны).
+
+#### 💡 Вариант Б: Кнопка «Сохранить и добавить ещё» в редакторе
+* **Сценарий UX:** На экране добавления/редактирования карты ([AddEditCardScreen.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardScreen.kt)) рядом с кнопкой «Сохранить» добавляется вторичная кнопка **«Сохранить и добавить ещё»** (или иконка `+`).
+* **Как работает:**
+  1. Текущая карта сохраняется в базовый репозиторий [CardRepository.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/data/repository/CardRepository.kt).
+  2. Экран не закрывается и не совершает переход назад.
+  3. Очищается поле *Номер карты* (и при необходимости *CVC*).
+  4. Поля *Название магазина*, *Цвет*, *Иконка* и *Формат штрихкода* сохраняются от предыдущей карты.
+  5. Показывается краткое уведомление (Snackbar/Toast) «Карта [Название] сохранена!», а камера-сканер может автоматически открываться для следующей карты.
+* **Для чего полезно:** Ввод пачки карт подряд, когда вы сидите с несколькими пластиковыми картами или открытыми штрихкодами.
+
+
+### 2. Дополнительные удобные решения для массового добавления
+
+#### 🚀 Вариант В: Режим непрерывного сканирования (Batch / Continuous Scan)
+* **Сценарий UX:** В сканере камеры [CameraBarcodeScanner.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/components/CameraBarcodeScanner.kt) добавляется тумблер **«Пакетный режим»**.
+* **Как работает:**
+  1. Камера не закрывается при первом распознанном штрихкоде.
+  2. При наведении на каждый штрихкод воспроизводится виброотклик/звук, а номер добавляется в нижний список отсканированных штрихкодов на экране камеры.
+  3. Нажав «Готово», пользователь переходит к экрану массового сохранения, где может задать один магазин или раскидать названия.
+
+#### 📋 Вариант Г: Пакетный ввод из буфера обмена (Paste list)
+* **Сценарий UX:** В меню или диалоге импорта добавляется пункт «Вставить список штрихкодов».
+* **Как работает:**
+  1. Пользователь вставляет многострочный текст из буфера обмена (например, из таблицы Excel или текстового файла).
+  2. Каждая строка распознается как отдельный номер карты.
+  3. Пользователь выбирает единое название магазина/категорию — и приложения сразу создает всю пачку карт.
+
+#### 🖼️ Вариант Д: Массовое распознавание из галереи (Multi-image Scan)
+* **Сценарий UX:** Использование контрактного лончера `ActivityResultContracts.GetMultipleContents()` для выбора нескольких скриншотов/фотографий карт из галереи за один раз.
+
+
+### 🛠️ Архитектурные изменения в коде (если реализуем варианты А и Б)
+
+1. **Для функции «Создать копию» (Duplicate):**
+   * В [Destination](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/MainActivity.kt) дополнить `AddEditCard`:
+     ```kotlin
+     data class AddEditCard(
+         val cardId: Long? = null,
+         val duplicateFromId: Long? = null,
+         val key: String = UUID.randomUUID().toString(),
+     ) : Destination
+     ```
+   * В [AddEditCardViewModel.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardViewModel.kt) добавить загрузку шаблона из `duplicateFromId`, сбрасывая `cardNumber = ""` и оставляя `isEditMode = false`.
+   * В диалог долговременного нажатия в [CardListItem.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/list/components/CardListItem.kt) добавить кнопку «Создать копию».
+
+2. **Для кнопки «Сохранить и добавить ещё»:**
+   * В [AddEditCardViewModel.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardViewModel.kt) добавить функцию:
+     ```kotlin
+     fun saveAndAddAnother(autoOpenScanner: Boolean = true)
+     ```
+     Которая сохраняет карту, сбрасывает `cardNumber`, показывает Snackbar «Карта сохранена» и переключает `isCameraScannerOpen = autoOpenScanner`.
+   * В [AddEditCardScreen.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardScreen.kt) разместить дополнительную кнопку рядом с кнопкой «Сохранить».
+
+
+Добавлена возможность быстрого сохранения и массового создания карт с помощью квадратной кнопки `+` на экране добавления/редактирования карты ([AddEditCardScreen.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardScreen.kt)).
+
+---
+
+### 🛠️ Что сделано
+
+1. **Квадратная кнопка `+` рядом с кнопкой «Сохранить»**:
+   - В нижней панели экрана добавления карты рядом с основной кнопкой сохранения размещена квадратная кнопка `+` высотой и формой с закруглением `12.dp` (`52.dp` × `52.dp`), аналогичная главной кнопке.
+   - Добавлено описание для спец. возможностей (`contentDescription`) и подсказки: *«Сохранить и добавить ещё»*.
+
+2. **Логика работы при нажатии на `+`**:
+   - Текущая карта валидируется и сохраняется в базу данных [CardRepository.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/data/repository/CardRepository.kt).
+   - Экран переходит в режим создания новой карты (`cardId = null`, `isEditMode = false`), не закрываясь.
+   - Все поля предыдущей карты (*Название магазина*, *Формат штрихкода*, *Цвет карты*, *Иконка*, *Примечание*, *CVC*, *Избранное*) **сохраняются**.
+   - Показывается уведомление в Snackbar: *«Карточка сохранена»*.
+
+3. **Локализация и тесты**:
+   - Добавлены строковые ресурсы в [strings.xml](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/res/values/strings.xml) и [values-en/strings.xml](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/res/values-en/strings.xml).
+   - Написан Unit-тест `testSaveAndAddAnother()` в [AddEditCardViewModelTest.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/test/java/com/example/discountcards/ui/addedit/AddEditCardViewModelTest.kt) (все 58 unit-тестов успешно пройдены).
+   
+---
+
+при сохранении проверять есть ли карточка с таким же кодом и типом кода. если есть, выдавать предупреждение что такая уже есть. Вы все равно хотите сохранить дубликат карты? если есть с таким же кодом но другим типом кода, то предупреждать об этом.
+
+Реализована проверка совпадения кода и формата штрихкода при сохранении карты.
+
+---
+
+### 📋 Что добавлено и как работает
+
+1. **Проверка перед сохранением** (работает и для обычного сохранения, и для кнопки `+` «Сохранить и добавить ещё»):
+   - При нажатии на сохранение приложение выполняет поиск карт с таким же кодом в БД (исключая текущую редактируемую карту).
+
+2. **Точный дубликат** (совпадает и код, и тип штрихкода):
+   - Открывается диалог:
+     > **Такой код уже существует**
+     > *«Карточка с таким кодом и типом штрихкода уже существует. Вы все равно хотите сохранить дубликат карты?»*
+     > **[Сохранить]** | **[Отмена]**
+
+3. **Дубликат кода с другим типом штрихкода**:
+   - Если код совпадает, но тип отличается (например, в БД `EAN-13`, а вы создаёте `QR CODE`), открывается диалог:
+     > **Такой код уже существует**
+     > *«Карточка с таким кодом уже существует, но с другим типом штрихкода (EAN 13). Вы все равно хотите сохранить карту?»*
+     > **[Сохранить]** | **[Отмена]**
+
+4. **Реакция на действия пользователя**:
+   - При нажатии **«Сохранить»**: карта сохраняется в базу данных.
+   - При нажатии **«Отмена»**: диалог закрывается, карта **не сохраняется**, пользователь остается на экране редактирования для изменения кода или формата.
+
+---
+
+### 📁 Измененные файлы
+
+- [AddEditCardUiState.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardUiState.kt) — добавлены состояния `DuplicateWarningType` и `PendingSaveAction`.
+- [AddEditCardViewModel.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardViewModel.kt) — добавлена функция `checkAndSaveCard` и разделены сценарии подтверждения.
+- [AddEditCardScreen.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardScreen.kt) — обновлен `AlertDialog` для отображения динамических текстов предупреждений.
+- [strings.xml](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/res/values/strings.xml) & [values-en/strings.xml](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/res/values-en/strings.xml) — добавлены локализованные тексты предупреждений.
+- [AddEditCardViewModelTest.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/test/java/com/example/discountcards/ui/addedit/AddEditCardViewModelTest.kt) — добавлены автоматические тесты для обоих типов предупреждений (60/60 unit-тестов успешно пройдены).
+
+---
+
+реализуй в контекстном меню на карточке на главном экране "Создать копию..." аналогично кнопке с +
+
+Реализован пункт контекстного меню **«Создать копию…»** для карточек на главном экране!
+
+### 🛠️ Что сделано
+
+1. **Пункт меню на карточке**:
+   - При долгом нажатии на карточку на главном экране ([CardListItem.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/list/components/CardListItem.kt)) в открывшемся меню добавлен пункт **«Создать копию…»** с иконкой копирования.
+
+2. **Переход к созданию новой карты**:
+   - Нажатие открывает экран добавления [AddEditCardScreen.kt](file:///E:/virtualenvs/discount_cards/DiscountCards/app/src/main/java/com/example/discountcards/ui/addedit/AddEditCardScreen.kt) со следующими настройками:
+     - Все поля исходной карты (*Название магазина*, *Номер штрихкода*, *Формат штрихкода*, *Цвет*, *Иконка*, *Примечание*, *CVC*, *Избранное*) **предзаполнены**.
+     - Курсор ввода автоматически устанавливается в **самый конец штрихкода**.
+     - Поля *Дата создания* и *Количество показов* **сброшены** (`createdAt = null`, `usageCount = 0`).
+     - Режим карты установлен как создание новой (`cardId = null`, `isEditMode = false`).
+
+3. **Тестирование**:
+   - Все 61 unit-тест успешно пройдены.
+   
+### 🌐 Добавлены переводы для следующих ключей:
+1. `card_action_duplicate` (*Создать копию…*)
+2. `card_saved_add_another` (*Карточка сохранена*)
+3. `save_and_add_another_desc` (*Сохранить и добавить ещё*)
+4. `duplicate_code_warning_exact` (*Карточка с таким кодом и типом штрихкода уже существует...*)
+5. `duplicate_code_warning_different_format` (*Карточка с таким кодом уже существует, но с другим типом штрихкода (%1$s)...*)
+
+   

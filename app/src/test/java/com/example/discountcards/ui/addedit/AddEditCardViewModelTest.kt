@@ -382,4 +382,156 @@ class AddEditCardViewModelTest {
         assertFalse(dismissedState.showDuplicateWarningDialog)
         assertEquals("", dismissedState.cardNumber)
     }
+
+    @Test
+    fun testSaveAndAddAnother() = runTest {
+        val dao = FakeDao()
+        val repository = CardRepositoryImpl(dao)
+        val viewModel = AddEditCardViewModel(
+            repository = repository,
+            cardId = null,
+            ioDispatcher = testDispatcher
+        )
+
+        viewModel.onStoreNameChanged("Pyaterochka")
+        viewModel.onCardNumberChanged("123456789")
+        viewModel.onBarcodeFormatChanged("EAN_13")
+        viewModel.onCardColorChanged(0xFF1E88E5.toInt())
+
+        viewModel.saveAndAddAnother()
+        advanceUntilIdle()
+
+        val state = viewModel.uiState.value
+        assertFalse(state.isSaved)
+        assertNull(state.cardId)
+        assertFalse(state.isEditMode)
+        assertNull(state.createdAt)
+        assertEquals(0, state.usageCount)
+        assertEquals("Pyaterochka", state.storeName)
+        assertEquals("123456789", state.cardNumber)
+        assertTrue(state.selectCardNumberTrigger > 0L)
+        assertEquals("CARD_SAVED", state.userMessage)
+        assertEquals(1, dao.cards.size)
+        assertEquals("Pyaterochka", dao.cards.first().storeName)
+        assertEquals("123456789", dao.cards.first().cardNumber)
+    }
+
+    @Test
+    fun testSaveExactDuplicateShowsWarningAndConfirmsSave() = runTest {
+        val dao = FakeDao()
+        dao.cards.add(
+            DiscountCard(
+                id = 1,
+                storeName = "Existing Store",
+                cardNumber = "123456789",
+                barcodeFormat = "CODE_128"
+            )
+        )
+        val repository = CardRepositoryImpl(dao)
+        val viewModel = AddEditCardViewModel(
+            repository = repository,
+            cardId = null,
+            ioDispatcher = testDispatcher
+        )
+
+        viewModel.onStoreNameChanged("Duplicate Store")
+        viewModel.onCardNumberChanged("123456789")
+        viewModel.onBarcodeFormatChanged("CODE_128")
+
+        viewModel.saveCard()
+        advanceUntilIdle()
+
+        val state = viewModel.uiState.value
+        assertTrue(state.showDuplicateWarningDialog)
+        assertEquals(DuplicateWarningType.EXACT_DUPLICATE, state.duplicateWarningType)
+        assertEquals(PendingSaveAction.SAVE, state.pendingSaveAction)
+        assertFalse(state.isSaved)
+
+        viewModel.onDuplicateWarningConfirmed()
+        advanceUntilIdle()
+
+        val confirmedState = viewModel.uiState.value
+        assertTrue(confirmedState.isSaved)
+        assertEquals(2, dao.cards.size)
+    }
+
+    @Test
+    fun testSaveDifferentFormatDuplicateShowsWarning() = runTest {
+        val dao = FakeDao()
+        dao.cards.add(
+            DiscountCard(
+                id = 1,
+                storeName = "Existing Store",
+                cardNumber = "123456789",
+                barcodeFormat = "EAN_13"
+            )
+        )
+        val repository = CardRepositoryImpl(dao)
+        val viewModel = AddEditCardViewModel(
+            repository = repository,
+            cardId = null,
+            ioDispatcher = testDispatcher
+        )
+
+        viewModel.onStoreNameChanged("New Store")
+        viewModel.onCardNumberChanged("123456789")
+        viewModel.onBarcodeFormatChanged("QR_CODE")
+
+        viewModel.saveCard()
+        advanceUntilIdle()
+
+        val state = viewModel.uiState.value
+        assertTrue(state.showDuplicateWarningDialog)
+        assertEquals(DuplicateWarningType.DIFFERENT_FORMAT, state.duplicateWarningType)
+        assertEquals("EAN_13", state.existingDuplicateFormat)
+        assertEquals(PendingSaveAction.SAVE, state.pendingSaveAction)
+        assertFalse(state.isSaved)
+
+        viewModel.onDuplicateWarningDismissed()
+        val dismissedState = viewModel.uiState.value
+        assertFalse(dismissedState.showDuplicateWarningDialog)
+        assertFalse(dismissedState.isSaved)
+        assertEquals(1, dao.cards.size)
+    }
+
+    @Test
+    fun testLoadCardForDuplicate() = runTest {
+        val dao = FakeDao()
+        dao.cards.add(
+            DiscountCard(
+                id = 20,
+                storeName = "Lenta",
+                cardNumber = "555444333",
+                barcodeFormat = "EAN_13",
+                note = "Sample Note",
+                cardColor = 0xFF1E88E5.toInt(),
+                iconName = "grocery",
+                usageCount = 10,
+                createdAt = 1600000000000L
+            )
+        )
+
+        val repository = CardRepositoryImpl(dao)
+        val viewModel = AddEditCardViewModel(
+            repository = repository,
+            cardId = null,
+            duplicateFromId = 20,
+            ioDispatcher = testDispatcher
+        )
+
+        backgroundScope.launch { viewModel.uiState.collect {} }
+        advanceUntilIdle()
+
+        val state = viewModel.uiState.value
+        assertFalse(state.isEditMode)
+        assertNull(state.cardId)
+        assertNull(state.createdAt)
+        assertEquals(0, state.usageCount)
+        assertEquals("Lenta", state.storeName)
+        assertEquals("555444333", state.cardNumber)
+        assertEquals("EAN_13", state.barcodeFormat)
+        assertEquals("Sample Note", state.note)
+        assertEquals("grocery", state.iconName)
+        assertTrue(state.selectCardNumberTrigger > 0L)
+    }
 }

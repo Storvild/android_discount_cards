@@ -60,6 +60,7 @@ sealed interface Destination {
     ) : Destination
     data class AddEditCard(
         val cardId: Long? = null,
+        val duplicateFromId: Long? = null,
         val key: String = UUID.randomUUID().toString(),
     ) : Destination
     data object Settings : Destination
@@ -71,7 +72,13 @@ fun destinationSaver(): Saver<Destination, String> = Saver(
         when (destination) {
             is Destination.CardList -> "CardList"
             is Destination.CardDetail -> "CardDetail:${destination.cardId}:${destination.key}"
-            is Destination.AddEditCard -> "AddEditCard:${destination.cardId ?: -1L}:${destination.key}"
+            is Destination.AddEditCard -> {
+                if (destination.duplicateFromId != null) {
+                    "AddEditCard:${destination.cardId ?: -1L}:${destination.duplicateFromId}:${destination.key}"
+                } else {
+                    "AddEditCard:${destination.cardId ?: -1L}:${destination.key}"
+                }
+            }
             is Destination.Settings -> "Settings"
             is Destination.Archive -> "Archive"
         }
@@ -86,10 +93,20 @@ fun destinationSaver(): Saver<Destination, String> = Saver(
             )
             "AddEditCard" -> {
                 val id = parts[1].toLong()
-                Destination.AddEditCard(
-                    cardId = if (id == -1L) null else id,
-                    key = parts.getOrNull(2) ?: UUID.randomUUID().toString()
-                )
+                if (parts.size >= 4) {
+                    val dupId = parts[2].toLongOrNull()
+                    val key = parts[3]
+                    Destination.AddEditCard(
+                        cardId = if (id == -1L) null else id,
+                        duplicateFromId = if (dupId == -1L || dupId == null) null else dupId,
+                        key = key
+                    )
+                } else {
+                    Destination.AddEditCard(
+                        cardId = if (id == -1L) null else id,
+                        key = parts.getOrNull(2) ?: UUID.randomUUID().toString()
+                    )
+                }
             }
             "Settings" -> Destination.Settings
             "Archive" -> Destination.Archive
@@ -255,6 +272,9 @@ fun DiscountCardsNavigation(
                 onEditCardClick = { cardId ->
                     backStack.add(Destination.AddEditCard(cardId))
                 },
+                onDuplicateCardClick = { cardId ->
+                    backStack.add(Destination.AddEditCard(duplicateFromId = cardId))
+                },
                 onAddCardClick = {
                     backStack.add(Destination.AddEditCard(null))
                 },
@@ -300,9 +320,10 @@ fun DiscountCardsNavigation(
         }
         is Destination.AddEditCard -> {
             val cardId = currentDestination.cardId
+            val duplicateFromId = currentDestination.duplicateFromId
             val viewModel: AddEditCardViewModel = viewModel(
                 key = "add_edit_card_${currentDestination.key}",
-                factory = AddEditCardViewModelFactory(repository, cardId)
+                factory = AddEditCardViewModelFactory(repository, cardId, duplicateFromId)
             )
             AddEditCardScreen(
                 viewModel = viewModel,

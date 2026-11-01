@@ -110,6 +110,8 @@
     <string name="created_at_label">Creation date: %1$s</string>
     <string name="save_changes">Save changes</string>
     <string name="add_card_button">Add card</string>
+    <string name="card_saved_add_another">Card saved</string>
+    <string name="save_and_add_another_desc">Save and add another</string>
 
     <!-- Categories -->
     <string name="cat_store">Store</string>
@@ -231,6 +233,7 @@
     <string name="widget_settings_desc">Widget Settings</string>
     <string name="widget_edit_note">To edit, tap the invisible button in the top right corner of the widget.</string>
     <string name="card_action_edit">Edit</string>
+    <string name="card_action_duplicate">Create a copy…</string>
     <string name="card_action_share">Share…</string>
     <string name="card_action_archive">Archive</string>
     <string name="card_action_delete">Delete</string>
@@ -238,8 +241,9 @@
 
     <!-- Duplicate Code Warning -->
     <string name="duplicate_code_warning_title">Code already exists</string>
-    <string name="duplicate_code_warning_message">Such code already exists. Add anyway?</string>
-    <string name="duplicate_code_warning_yes">Add anyway</string>
+    <string name="duplicate_code_warning_exact">A card with the same code and barcode format already exists. Do you still want to save a duplicate card?</string>
+    <string name="duplicate_code_warning_different_format">A card with this code already exists, but with a different format (%1$s). Do you still want to save the card?</string>
+    <string name="duplicate_code_warning_yes">Save</string>
     <string name="duplicate_code_warning_no">Cancel</string>
 
     <!-- Share Barcode -->
