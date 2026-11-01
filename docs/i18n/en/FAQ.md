@@ -37,6 +37,11 @@ There are three methods:
 2. **Scanning:** tap the button in the "Card Number" section with the QR code icon and point the camera at the physical card (using ML Kit for fast recognition).
 3. **From File:** tap the button in the "Card Number" section and select a saved barcode image from your gallery or file manager.
 
+**How to quickly add many cards?**  
+- **"Save & Add Another" button (`+`):** on the card creation/edit screen, next to the "Save" button, there is a square `+` button. It saves the current card and prepares the form for the next one — keeping the store name, color, icon, and format pre-filled, placing the cursor at the end of the card number field, and resetting creation date and view count. This allows you to continuously enter a batch of cards one after another.
+- **"Create a copy…" feature:** long-press any card in the main list (context menu) and select **"Create a copy…"**. This opens the new card form with pre-filled settings for rapid saving.
+- **Batch import from file:** in *Settings → Import*, you can load a card list file (`JSON` or `CSV`), or simply tap such a file in your file manager.
+
 **What barcode formats are supported?**  
 The app generates and recognizes: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. There is also a `PHONE` mode for cards where the discount is provided simply by phone number (displayed as large text, without generating a barcode).
 

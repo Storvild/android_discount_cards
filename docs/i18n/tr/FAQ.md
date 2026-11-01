@@ -37,6 +37,11 @@ Uygulamanın yalnızca bir izne ihtiyacı vardır ve bu izin **yalnızca kullan�
 2. **Tarama:** "Kart numarası" bölümündeki QR kodu simgeli düğmeye basın ve kamerayı fiziksel karta doğrultun (hızlı tanıma için ML Kit kullanılarak).
 3. **Dosyadan:** "Kart numarası" bölümündeki düğmeye basın ve galeriden veya dosya yöneticisinden kaydedilmiş barkod görselini seçin.
 
+**Hızlı bir şekilde çok sayıda kart nasıl eklenir?**  
+- **"Kaydet ve başka ekle" düğmesi (`+`):** Kart oluşturma/düzenleme ekranında "Kaydet" düğmesinin yanında kare bir `+` düğmesi bulunur. Mevcut kartı kaydeder ve sonraki kart için formu hazırlar — mağaza adı, renk, simge ve biçimi önceden doldurulmuş olarak tutar, imleci kodun sonuna yerleştirir ve tarih/görüntülenme sayısını sıfırlar.
+- **"Kopya oluştur…" özelliği:** Ana listedeki herhangi bir karta uzun basın (bağlam menüsü) ve **"Kopya oluştur…"** seçeneğini belirleyin. Bu, hızlı kaydetme için kopyalanan ayarlarla formu açar.
+- **Dosyadan toplu içe aktarma:** *Ayarlar → İçe Aktar* bölümünden bir kart listesi dosyasını (`JSON` veya `CSV`) yükleyebilirsiniz.
+
 **Hangi barkod biçimleri destekleniyor?**  
 Uygulama şunları üretir ve tanır: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. Ayrıca, indirimin yalnızca telefon numarasıyla sağlandığı kartlar için `PHONE` modu vardır (büyük metin olarak görüntülenir, barkod üretilmez).
 

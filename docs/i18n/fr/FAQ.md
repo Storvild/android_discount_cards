@@ -37,6 +37,11 @@ Il existe trois méthodes :
 2. **Scan :** appuyer sur le bouton dans la section « Numéro de carte » avec l'icône de code QR et pointer l'appareil photo vers la carte physique (avec ML Kit pour une reconnaissance rapide).
 3. **Depuis un fichier :** appuyer sur le bouton dans la section « Numéro de carte » et sélectionner une image de code-barres enregistrée depuis la galerie ou le gestionnaire de fichiers.
 
+**Comment ajouter rapidement plusieurs cartes ?**  
+- **Bouton « Enregistrer & ajouter une autre » (`+`) :** sur l'écran de création/modification, à côté du bouton « Enregistrer », se trouve un bouton carré `+`. Il enregistre la carte actuelle et prépare le formulaire pour la suivante (conserve le magasin, la couleur, l'icône et le format préremplis, place le curseur à la fin du numéro et réinitialise la date et le compteur d'affichages).
+- **Fonction « Créer une copie… » :** appuyez longuement sur une carte dans la liste principale (menu contextuel) et sélectionnez **« Créer une copie… »**. Cela ouvre le formulaire prérempli pour un enregistrement rapide.
+- **Importation en lot depuis un fichier :** dans *Paramètres → Importer*, vous pouvez charger un fichier de cartes (`JSON` ou `CSV`).
+
 **Quels formats de codes-barres sont pris en charge ?**  
 L'application génère et reconnaît : `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. Il existe également un mode `PHONE` pour les cartes où la réduction est accordée simplement par numéro de téléphone (affiché en grand texte, sans génération de code-barres).
 

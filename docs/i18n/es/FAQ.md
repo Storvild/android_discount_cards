@@ -37,6 +37,11 @@ Hay tres formas:
 2. **Escaneo:** pulsar el botón en la sección "Número de tarjeta" con el icono de código QR y apuntar la cámara a la tarjeta física (utilizando ML Kit para un reconocimiento rápido).
 3. **Desde archivo:** pulsar el botón en la sección "Número de tarjeta" y seleccionar una imagen guardada del código de barras desde la galería o el gestor de archivos.
 
+**¿Cómo añadir rápidamente muchas tarjetas?**  
+- **Botón «Guardar y añadir otra» (`+`):** en la pantalla de creación/edición de tarjeta, junto al botón «Guardar», hay un botón cuadrado `+`. Guarda la tarjeta actual y prepara el formulario para la siguiente (mantiene la tienda, color, icono y formato prellenados, sitúa el cursor al final del número y reinicia la fecha y las vistas).
+- **Función «Crear una copia…»:** mantén pulsada cualquier tarjeta en la lista principal (menú contextual) y selecciona **«Crear una copia…»**. Esto abre el formulario con los datos copiados para un guardado rápido.
+- **Importación masiva desde archivo:** en *Ajustes → Importar*, puedes cargar un archivo de lista de tarjetas (`JSON` o `CSV`).
+
 **¿Qué formatos de código de barras son compatibles?**  
 La aplicación genera y reconoce: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. También existe el modo `PHONE` para tarjetas donde el descuento se aplica simplemente por el número de teléfono (se muestra en texto grande, sin generar código de barras).
 

@@ -37,6 +37,11 @@ Existem três maneiras:
 2. **Escaneamento:** tocar no botão na seção "Número do cartão" com o ícone de código QR e apontar a câmera para o cartão físico (usando ML Kit para reconhecimento rápido).
 3. **A partir de arquivo:** tocar no botão na seção "Número do cartão" e selecionar uma imagem salva do código de barras da galeria ou do gerenciador de arquivos.
 
+**Como adicionar rapidamente vários cartões?**  
+- **Botão "Salvar e adicionar outro" (`+`):** na tela de criação/edição do cartão, ao lado do botão "Salvar", há um botão quadrado `+`. Ele salva o cartão atual e prepara o formulário para o próximo — mantendo a loja, cor, ícone e formato pré-preenchidos, posicionando o cursor no final do código e reiniciando a data e as visualizações.
+- **Recurso "Criar uma cópia…":** mantenha pressionado qualquer cartão na lista principal (menu de contexto) e selecione **"Criar uma cópia…"**. Isso abre o formulário pré-preenchido para um salvamento rápido.
+- **Importação em lote de arquivo:** em *Configurações → Importar*, você pode carregar um arquivo de lista de cartões (`JSON` ou `CSV`).
+
 **Quais formatos de código de barras são suportados?**  
 O aplicativo gera e reconhece: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. Também há o modo `PHONE` para cartões onde o desconto é concedido apenas pelo número de telefone (exibido em texto grande, sem gerar código de barras).
 

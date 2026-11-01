@@ -37,6 +37,11 @@ Es gibt drei Methoden:
 2. **Scannen:** auf die Schaltfläche im Bereich „Kartennummer“ mit dem QR-Code-Symbol tippen und die Kamera auf die physische Karte richten (unter Verwendung von ML Kit für schnelle Erkennung).
 3. **Aus Datei:** auf die Schaltfläche im Bereich „Kartennummer“ tippen und ein gespeichertes Barcode-Bild aus der Galerie oder dem Dateimanager auswählen.
 
+**Wie kann man schnell viele Karten hinzufügen?**  
+- **Schaltfläche „Speichern & weitere hinzufügen“ (`+`):** Auf dem Erstellungs-/Bearbeitungsbildschirm befindet sich neben „Speichern“ die quadratische Schaltfläche `+`. Sie speichert die aktuelle Karte und bereitet das Formular für die nächste vor — Geschäft, Farbe, Icon und Format bleiben vorausgefüllt, der Cursor steht am Ende des Nummernfelds und Erstellungsdatum/Aufrufzähler werden zurückgesetzt.
+- **Funktion „Kopie erstellen…“:** Drücken Sie lange auf eine Karte in der Hauptliste (Kontextmenü) und wählen Sie **„Kopie erstellen…“**. Dadurch wird das Formular mit den kopierten Daten zum schnellen Speichern geöffnet.
+- **Stapel-Import aus Datei:** Unter *Einstellungen → Import* können Sie eine Kartenlistendatei (`JSON` oder `CSV`) importieren.
+
 **Welche Barcode-Formate werden unterstützt?**  
 Die App erstellt und erkennt: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. Zudem gibt es den Modus `PHONE` für Karten, bei denen der Rabatt einfach über die Telefonnummer gewährt wird (wird in großem Text ohne Barcode-Erstellung angezeigt).
 

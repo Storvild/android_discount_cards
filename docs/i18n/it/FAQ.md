@@ -37,6 +37,11 @@ Ci sono tre modi:
 2. **Scansione:** premere il pulsante nella sezione "Numero tessera" con l'icona del codice QR e inquadrare la tessera fisica con la fotocamera (utilizzando ML Kit per un riconoscimento rapido).
 3. **Da file:** premere il pulsante nella sezione "Numero tessera" e selezionare un'immagine salvata del codice a barre dalla galleria o dal file manager.
 
+**Come aggiungere rapidamente molte carte?**  
+- **Pulsante "Salva e aggiungi un'altra" (`+`):** nella schermata di creazione/modifica della carta, accanto al pulsante "Salva", c'è un pulsante quadrato `+`. Salva la carta corrente e prepara il modulo per la successiva — mantenendo nome negozio, colore, icona e formato precompilati, posizionando il cursore alla fine del numero e azzerando data e conteggio visualizzazioni.
+- **Funzione "Crea una copia…":** premi a lungo su qualsiasi carta nell'elenco principale (menu contestuale) e seleziona **"Crea una copia…"**. Si aprirà il modulo precompilato per un salvataggio rapido.
+- **Importazione di massa da file:** in *Impostazioni → Importa*, puoi caricare un file con l'elenco delle carte (`JSON` o `CSV`).
+
 **Quali formati di codice a barre sono supportati?**  
 L'applicazione genera e riconosce: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. È disponibile anche la modalità `PHONE` per le tessere in cui lo sconto viene applicato semplicemente tramite numero di telefono (visualizzato a caratteri grandi, senza generazione del codice a barre).
 
