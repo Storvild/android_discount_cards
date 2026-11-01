@@ -14,6 +14,7 @@
     <string name="clear_search_desc">清除搜索</string>
     <string name="menu_options_desc">选项菜单</string>
     <string name="menu_file">文件</string>
+    <string name="menu_tools">工具</string>
     <string name="menu_appearance">深色模式</string>
     <string name="menu_sort">排序</string>
     <string name="menu_settings">设置</string>
@@ -29,6 +30,18 @@
     <string name="share_json_action">分享…</string>
     <string name="share_action">分享…</string>
     <string name="add_card_action">添加卡片…</string>
+    <string name="bulk_scan_action">批量扫描…</string>
+    <string name="bulk_image_import_action">从图片批量添加…</string>
+    <string name="bulk_scan_title">批量扫描</string>
+    <string name="bulk_scan_instruction">将摄像头对准卡片条形码以连续扫描</string>
+    <string name="bulk_scan_count">本次会话已添加卡片：%1$d</string>
+    <string name="bulk_scan_last_added">已添加卡片：%1$s</string>
+    <string name="bulk_scan_finish">完成</string>
+    <string name="bulk_image_processing_title">正在处理图片…</string>
+    <string name="bulk_image_processing_progress">已处理 %1$d / %2$d</string>
+    <string name="bulk_image_import_success">成功添加卡片：%1$d / %2$d 张图片</string>
+    <string name="bulk_image_import_partial">成功添加卡片：%1$d（未识别：%2$d）</string>
+    <string name="bulk_image_import_none">图片中未找到条形码</string>
     <string name="import_file_action">从文件导入…</string>
 
     <string name="delete_cards_action">删除卡片…</string>

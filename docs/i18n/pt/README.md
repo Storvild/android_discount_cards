@@ -36,6 +36,12 @@
 ## 📱 Principais funcionalidades
 
 - 💳 **Gerenciamento de cartões de fidelidade** — adição, edição e exclusão individual ou em massa de cartões.
+- 🛠 **Menu "Ferramentas"** — um submenu prático no menu suspenso principal ("...") que agrupa as operações essenciais:
+  - 📤 **Exportar para ficheiro…** — cópia de segurança dos cartões no formato JSON ou CSV.
+  - 📥 **Importar de ficheiro…** — restauração dos cartões a partir de um backup.
+  - 📷 **Digitalização em massa…** — modo de digitalização contínua com a câmara.
+  - 🖼️ **Importação em massa de imagens…** — seleção múltipla de fotos da galeria com reconhecimento automático pelo ML Kit.
+  - 🗑 **Eliminar cartões…** — exclusão fácil de um ou mais cartões selecionados.
 - 📷 **Escaneamento e seleção de código de barras a partir de um arquivo** — escaneamento de cartões físicos em tempo real com a câmera (CameraX + ML Kit) ou seleção de uma imagem de código de barras da galeria/arquivo.
 - 🔢 **Suporte a múltiplos formatos de código de barras** — geração de códigos de barras visuais com a biblioteca ZXing:
   - `QR_CODE`

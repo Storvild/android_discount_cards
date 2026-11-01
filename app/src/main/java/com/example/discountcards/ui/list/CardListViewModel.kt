@@ -1,6 +1,7 @@
 package com.example.discountcards.ui.list
 
 import android.content.ContentResolver
+import android.content.Context
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,9 +9,14 @@ import com.example.discountcards.data.local.entity.DiscountCard
 import com.example.discountcards.data.repository.CardRepository
 import com.example.discountcards.data.repository.SortOrder
 import com.example.discountcards.data.repository.UserPreferencesRepository
+import com.example.discountcards.ui.addedit.AddEditCardViewModel
 import com.example.discountcards.util.DuplicateStrategy
 import com.example.discountcards.util.ExportFormat
 import com.example.discountcards.util.ImportMode
+import com.google.mlkit.vision.barcode.BarcodeScanning
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.common.InputImage
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -21,6 +27,8 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CardListViewModel(
@@ -62,6 +70,11 @@ class CardListViewModel(
     private val importMode = MutableStateFlow(ImportMode.MERGE)
     private val duplicateStrategy = MutableStateFlow(DuplicateStrategy.UPDATE_EXISTING)
 
+    // Bulk image processing state
+    private val isProcessingBulkImages = MutableStateFlow(false)
+    private val bulkImagesTotal = MutableStateFlow(0)
+    private val bulkImagesProcessed = MutableStateFlow(0)
+
     private val sortOrderFlow = preferencesRepository?.userPreferencesFlow?.map { it.sortOrder }
         ?: MutableStateFlow(SortOrder.ALPHABETICAL)
 
@@ -100,7 +113,10 @@ class CardListViewModel(
         selectedImportIndexes,
         existingStoreNames,
         importMode,
-        duplicateStrategy
+        duplicateStrategy,
+        isProcessingBulkImages,
+        bulkImagesTotal,
+        bulkImagesProcessed
     ) { args: Array<Any?> ->
         @Suppress("UNCHECKED_CAST")
         CardListUiState(
@@ -133,7 +149,10 @@ class CardListViewModel(
             selectedImportIndexes = args[20] as Set<Int>,
             existingStoreNames = args[21] as Set<String>,
             importMode = args[22] as ImportMode,
-            duplicateStrategy = args[23] as DuplicateStrategy
+            duplicateStrategy = args[23] as DuplicateStrategy,
+            isProcessingBulkImages = args[24] as Boolean,
+            bulkImagesTotal = args[25] as Int,
+            bulkImagesProcessed = args[26] as Int
         )
     }.stateIn(
         scope = viewModelScope,
@@ -599,6 +618,90 @@ class CardListViewModel(
 
     fun clearUserMessage() {
         userMessage.value = null
+    }
+
+    fun addScannedCard(cardNumber: String, barcodeFormat: String) {
+        viewModelScope.launch {
+            runCatching {
+                val card = DiscountCard(
+                    storeName = cardNumber,
+                    cardNumber = cardNumber,
+                    barcodeFormat = barcodeFormat,
+                    createdAt = System.currentTimeMillis(),
+                    updatedAt = System.currentTimeMillis()
+                )
+                repository.insertCard(card)
+            }
+        }
+    }
+
+    fun processBulkImages(context: Context, uris: List<Uri>) {
+        if (uris.isEmpty()) return
+        viewModelScope.launch(Dispatchers.IO) {
+            isProcessingBulkImages.value = true
+            bulkImagesTotal.value = uris.size
+            bulkImagesProcessed.value = 0
+
+            var successCount = 0
+            var failedImagesCount = 0
+
+            val scanner = BarcodeScanning.getClient()
+            try {
+                for ((index, uri) in uris.withIndex()) {
+                    bulkImagesProcessed.value = index + 1
+                    try {
+                        val inputImage = InputImage.fromFilePath(context, uri)
+                        val barcodes = suspendCancellableCoroutine<List<Barcode>> { continuation ->
+                            scanner.process(inputImage)
+                                .addOnSuccessListener { list ->
+                                    if (continuation.isActive) continuation.resume(list)
+                                }
+                                .addOnFailureListener {
+                                    if (continuation.isActive) continuation.resume(emptyList())
+                                }
+                        }
+
+                        if (barcodes.isNotEmpty()) {
+                            var foundValidInImage = false
+                            for (barcode in barcodes) {
+                                val rawValue = barcode.rawValue ?: barcode.displayValue
+                                if (!rawValue.isNullOrBlank()) {
+                                    foundValidInImage = true
+                                    val format = AddEditCardViewModel.mapMlKitFormatToString(barcode.format)
+                                    val card = DiscountCard(
+                                        storeName = rawValue,
+                                        cardNumber = rawValue,
+                                        barcodeFormat = format,
+                                        createdAt = System.currentTimeMillis(),
+                                        updatedAt = System.currentTimeMillis()
+                                    )
+                                    repository.insertCard(card)
+                                    successCount++
+                                }
+                            }
+                            if (!foundValidInImage) {
+                                failedImagesCount++
+                            }
+                        } else {
+                            failedImagesCount++
+                        }
+                    } catch (e: Exception) {
+                        failedImagesCount++
+                    }
+                }
+            } finally {
+                runCatching { scanner.close() }
+                isProcessingBulkImages.value = false
+                bulkImagesTotal.value = 0
+                bulkImagesProcessed.value = 0
+            }
+
+            userMessage.value = when {
+                successCount > 0 && failedImagesCount == 0 -> "BULK_IMAGE_SUCCESS:$successCount:${uris.size}"
+                successCount > 0 && failedImagesCount > 0 -> "BULK_IMAGE_PARTIAL:$successCount:$failedImagesCount"
+                else -> "BULK_IMAGE_NONE"
+            }
+        }
     }
 }
 

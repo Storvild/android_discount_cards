@@ -14,6 +14,7 @@
     <string name="clear_search_desc">Очистить поиск</string>
     <string name="menu_options_desc">Меню опций</string>
     <string name="menu_file">Файл</string>
+    <string name="menu_tools">Инструменты</string>
     <string name="menu_appearance">Темная тема</string>
     <string name="menu_sort">Сортировка</string>
     <string name="menu_settings">Настройки</string>
@@ -28,6 +29,19 @@
     <string name="share_json_action">Поделиться…</string>
     <string name="share_action">Поделиться…</string>
     <string name="add_card_action">Добавить карточку…</string>
+    <string name="bulk_scan_action">Массовое сканирование…</string>
+    <string name="bulk_image_import_action">Массовое добавление из изображений…</string>
+    <string name="bulk_scan_title">Массовое сканирование</string>
+    <string name="bulk_scan_instruction">Наведите камеру на штрихкоды карт для последовательного считывания</string>
+    <string name="bulk_scan_count">Добавлено карт в этой сессии: %1$d</string>
+    <string name="bulk_scan_last_added">Добавлена карта: %1$s</string>
+    <string name="bulk_scan_finish">Завершить</string>
+    <string name="bulk_image_processing_title">Обработка изображений…</string>
+    <string name="bulk_image_processing_progress">Обработано %1$d из %2$d</string>
+    <string name="bulk_image_import_success">Добавлено карт: %1$d из %2$d изображений</string>
+    <string name="bulk_image_import_partial">Добавлено карт: %1$d (не распознано: %2$d)</string>
+    <string name="bulk_image_import_none">Штрихкоды на изображениях не найдены</string>
+    <string name="duplicate_code_warning_message">Такой код уже существует. Всё равно добавить?</string>
     <string name="export_format_json">JSON</string>
     <string name="export_format_csv">CSV</string>
     <string name="delete_cards_action">Удаление карточек…</string>

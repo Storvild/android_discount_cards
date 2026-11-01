@@ -14,6 +14,7 @@
     <string name="clear_search_desc">Limpiar búsqueda</string>
     <string name="menu_options_desc">Menú de opciones</string>
     <string name="menu_file">Archivo</string>
+    <string name="menu_tools">Herramientas</string>
     <string name="menu_appearance">Tema oscuro</string>
     <string name="menu_sort">Ordenar</string>
     <string name="menu_settings">Ajustes</string>
@@ -29,6 +30,18 @@
     <string name="share_json_action">Compartir…</string>
     <string name="share_action">Compartir…</string>
     <string name="add_card_action">Añadir tarjeta…</string>
+    <string name="bulk_scan_action">Escaneo masivo…</string>
+    <string name="bulk_image_import_action">Importación masiva desde imágenes…</string>
+    <string name="bulk_scan_title">Escaneo masivo</string>
+    <string name="bulk_scan_instruction">Apunta la cámara a los códigos de barras de las tarjetas para escanearlos de forma continua</string>
+    <string name="bulk_scan_count">Tarjetas añadidas en esta sesión: %1$d</string>
+    <string name="bulk_scan_last_added">Tarjeta añadida: %1$s</string>
+    <string name="bulk_scan_finish">Finalizar</string>
+    <string name="bulk_image_processing_title">Procesando imágenes…</string>
+    <string name="bulk_image_processing_progress">Procesadas %1$d de %2$d</string>
+    <string name="bulk_image_import_success">Tarjetas añadidas: %1$d de %2$d imágenes</string>
+    <string name="bulk_image_import_partial">Tarjetas añadidas: %1$d (no reconocidas: %2$d)</string>
+    <string name="bulk_image_import_none">No se encontraron códigos de barras en las imágenes</string>
     <string name="import_file_action">Importar de archivo…</string>
 
     <string name="delete_cards_action">Eliminar tarjetas…</string>

@@ -35,6 +35,12 @@ Tap the floating **"+"** button on the main screen. You can also tap "Add card..
 4. *(Optional)* Add a note or CVC/CVV code.
 5. Tap "Save".
 
+### 🚀 Rapid and Bulk Card Addition
+- **Bulk Camera Scanning:** In the main screen drop-down menu ("..."), select **Tools → Bulk scanning…**. The camera opens in continuous scanning mode. Point it at card barcodes one by one — cards will be saved with store name = code.
+- **Bulk Import from Images:** In the menu, select **Tools → Bulk import from images…**. Select multiple files from the gallery, and the app will recognize all barcodes via ML Kit and create cards.
+- **"Save & Add Another" button (`+`):** Tap the square `+` button next to "Save". The current card will be saved, and the form will be prepared for the next card (store, color, and format remain pre-filled, with the cursor positioned at the end of the code field).
+- **"Create a copy…" Context Menu:** Press and hold a card in the main list and select "Create a copy…" to instantly open the addition form with pre-filled settings.
+
 ---
 
 ## 🛒 Chapter 3: Using Cards at Checkout
@@ -90,7 +96,7 @@ Go to **Settings** (gear icon) to personalize the app:
 Your data belongs to you alone. Create backups regularly.
 
 ### Export (Creating a Copy)
-1. Go to Settings → **Export**.
+1. Go to menu ("...") → **Tools → Export to file…**.
 2. Select format:
    - **JSON**: Full format with all details (colors, icons, dates, CVC, archive status). Recommended for transferring to another device.
    - **CSV**: Table format (Name, Code, Code Type, CVC, Note). Convenient for viewing in Excel.
@@ -98,7 +104,7 @@ Your data belongs to you alone. Create backups regularly.
 
 ### Import (Restoring a Copy)
 1. **Automatic Method**: Find the saved `.json` or `.csv` file in your file manager and tap it. Select "Open with" → **DiscountCards**. The app will automatically launch the import process.
-2. **Manual Method**: Go to Settings → **Import** and select the file manually.
+2. **Manual Method**: Go to menu ("...") → **Tools → Import from file…** and select the file manually.
 3. **Select Import Mode**:
    - **MERGE**: Adds new cards to existing ones (recommended).
    - **OVERWRITE**: Completely deletes current cards and replaces them with data from the file.

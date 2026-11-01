@@ -36,6 +36,12 @@
 ## 📱 Ana özellikler
 
 - 💳 **Sadakat kartı yönetimi** — kart ekleme, düzenleme, tekil ve toplu silme.
+- 🛠 **"Araçlar" menüsü** — ana ekranın açılır menüsündeki ("...") tüm temel işlemleri toplayan alt menü:
+  - 📤 **Dosyaya aktar…** — kartları JSON veya CSV formatında yedekleme.
+  - 📥 **Dosyadan içe aktar…** — yedekten kartları geri yükleme.
+  - 📷 **Toplu tarama…** — kamera ile sürekli tarama modu.
+  - 🖼️ **Görsellerden toplu ekleme…** — galeriden birden fazla görsel seçip ML Kit ile otomatik barkod tanıma.
+  - 🗑 **Kartları sil…** — bir veya birden fazla seçilen kartı kolayca silme.
 - 📷 **Barkodu tarama ve dosyadan seçme** — kamera ile (CameraX + ML Kit) fiziksel kartların gerçek zamanlı taraması veya galeri/dosyadan barkodlu bir görsel seçme.
 - 🔢 **Çoklu barkod biçimi desteği** — ZXing kitaplığıyla görsel barkod oluşturma:
   - `QR_CODE`

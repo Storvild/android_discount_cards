@@ -38,9 +38,11 @@ There are three methods:
 3. **From File:** tap the button in the "Card Number" section and select a saved barcode image from your gallery or file manager.
 
 **How to quickly add many cards?**  
+- **Bulk camera scanning:** select *Tools → Bulk scanning…* in the main screen drop-down menu ("..."). The camera opens in continuous scanning mode: point it at card barcodes one by one, and cards will be created with store name = code.
+- **Bulk import from images:** select *Tools → Bulk import from images…* in the drop-down menu. Select multiple photos from gallery, and ML Kit will recognize barcodes on them and create new cards.
 - **"Save & Add Another" button (`+`):** on the card creation/edit screen, next to the "Save" button, there is a square `+` button. It saves the current card and prepares the form for the next one — keeping the store name, color, icon, and format pre-filled, placing the cursor at the end of the card number field, and resetting creation date and view count. This allows you to continuously enter a batch of cards one after another.
 - **"Create a copy…" feature:** long-press any card in the main list (context menu) and select **"Create a copy…"**. This opens the new card form with pre-filled settings for rapid saving.
-- **Batch import from file:** in *Settings → Import*, you can load a card list file (`JSON` or `CSV`), or simply tap such a file in your file manager.
+- **Batch import from file:** in *Tools → Import from file…*, you can load a card list file (`JSON` or `CSV`), or simply tap such a file in your file manager.
 
 **What barcode formats are supported?**  
 The app generates and recognizes: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. There is also a `PHONE` mode for cards where the discount is provided simply by phone number (displayed as large text, without generating a barcode).
@@ -61,10 +63,10 @@ Yes, when editing a card, you can add any custom note as well as a field for a C
 ## 💾 Backup and Data Transfer
 
 **How to create a backup of cards?**  
-Go to Settings → Export. You can save all data in **JSON** format (full data structure, recommended) or **CSV** (table format, convenient for viewing in Excel).
+Open the main screen drop-down menu ("...") and select **Tools → Export to file…**. You can save all data in **JSON** format (full data structure, recommended) or **CSV** (table format, convenient for viewing in Excel).
 
 **How to transfer cards to a new phone?**  
-1. On the old device, export cards to a file (JSON or CSV).
+1. On the old device, export cards to a file via *Tools → Export to file…* (JSON or CSV).
 2. Transfer this file to the new device (via Bluetooth, messenger, cloud, or USB).
 3. On the new device, open the file through a file manager. The app will automatically intercept the action and offer to import cards.
 

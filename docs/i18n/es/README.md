@@ -36,6 +36,12 @@
 ## 📱 Principales características
 
 - 💳 **Gestión de tarjetas de fidelización** — añadir, editar y eliminar tarjetas de forma individual o masiva.
+- 🛠 **Menú "Herramientas"** — un submenú práctico en el menú desplegable principal ("...") que agrupa las operaciones clave:
+  - 📤 **Exportar a archivo…** — copia de seguridad de tarjetas en formato JSON o CSV.
+  - 📥 **Importar de archivo…** — restauración de tarjetas desde copia de seguridad.
+  - 📷 **Escaneo masivo…** — modo de escaneo continuo con la cámara (cada código se guarda como una tarjeta).
+  - 🖼️ **Importación masiva desde imágenes…** — selección múltiple de fotos de la galería con reconocimiento automático por ML Kit.
+  - 🗑 **Eliminar tarjetas…** — eliminación sencilla de una o varias tarjetas seleccionadas.
 - 📷 **Escaneo y selección de código de barras desde un archivo** — escaneo de tarjetas físicas en tiempo real con la cámara (CameraX + ML Kit) o selección de una imagen de código de barras desde la galería/archivo.
 - 🔢 **Soporte de múltiples formatos de código de barras** — generación de códigos de barras visuales con la biblioteca ZXing:
   - `QR_CODE`

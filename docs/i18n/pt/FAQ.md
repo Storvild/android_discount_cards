@@ -38,9 +38,11 @@ Existem três maneiras:
 3. **A partir de arquivo:** tocar no botão na seção "Número do cartão" e selecionar uma imagem salva do código de barras da galeria ou do gerenciador de arquivos.
 
 **Como adicionar rapidamente vários cartões?**  
-- **Botão "Salvar e adicionar outro" (`+`):** na tela de criação/edição do cartão, ao lado do botão "Salvar", há um botão quadrado `+`. Ele salva o cartão atual e prepara o formulário para o próximo — mantendo a loja, cor, ícone e formato pré-preenchidos, posicionando o cursor no final do código e reiniciando a data e as visualizações.
+- **Digitalização em massa com a câmera:** selecione no menu suspenso (*Ferramentas → Digitalização em massa…*). A câmera abrirá no modo de digitalização contínua.
+- **Importação em massa de imagens:** selecione no menu suspenso (*Ferramentas → Importação em massa de imagens…*). Selecione várias fotos da galeria.
+- **Botão "Salvar e adicionar outro" (`+`):** na tela de criação/edição do cartão há um botão quadrado `+`. Ele salva o cartão atual e prepara o formulário para o próximo.
 - **Recurso "Criar uma cópia…":** mantenha pressionado qualquer cartão na lista principal (menu de contexto) e selecione **"Criar uma cópia…"**. Isso abre o formulário pré-preenchido para um salvamento rápido.
-- **Importação em lote de arquivo:** em *Configurações → Importar*, você pode carregar um arquivo de lista de cartões (`JSON` ou `CSV`).
+- **Importação em lote de arquivo:** no menu *Ferramentas → Importar de ficheiro…*, você pode carregar um arquivo de lista de cartões (`JSON` ou `CSV`).
 
 **Quais formatos de código de barras são suportados?**  
 O aplicativo gera e reconhece: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. Também há o modo `PHONE` para cartões onde o desconto é concedido apenas pelo número de telefone (exibido em texto grande, sem gerar código de barras).
@@ -61,10 +63,10 @@ Sim, ao editar um cartão você pode adicionar uma nota livre, bem como um campo
 ## 💾 Backup e transferência de dados
 
 **Como criar uma cópia de segurança dos cartões?**  
-Acesse Configurações → Exportar. Você pode salvar todos os dados no formato **JSON** (estrutura completa de dados, recomendado) ou **CSV** (tabela conveniente para visualização no Excel).
+Abra o menu suspenso ("...") na tela principal e selecione **Ferramentas → Exportar para ficheiro…**. Você pode salvar todos os dados no formato **JSON** ou **CSV**.
 
 **Como transferir cartões para um novo celular?**  
-1. No dispositivo antigo, exporte os cartões para um arquivo (JSON ou CSV).
+1. No dispositivo antigo, exporte os cartões para um arquivo via *Ferramentas → Exportar para ficheiro…* (JSON ou CSV).
 2. Transfira este arquivo para o novo dispositivo (via Bluetooth, aplicativo de mensagens, nuvem ou USB).
 3. No novo dispositivo, abra o arquivo através do gerenciador de arquivos. O aplicativo interceptará automaticamente a ação e proporá a importação dos cartões.
 

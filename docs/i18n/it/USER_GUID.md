@@ -35,6 +35,10 @@ Premi il pulsante fluttuante **«+»** nella schermata principale. Puoi anche pr
 4. *(Opzionale)* Aggiungi una nota o un codice CVC/CVV.
 5. Premi «Salva».
 
+### 🚀 Aggiunta rapida e in blocco di tessere
+- **Scansione di massa con fotocamera:** Nel menu a discesa della schermata principale ("..."), seleziona **Strumenti → Scansione di massa…**.
+- **Importazione di massa da immagini:** Nel menu, seleziona **Strumenti → Importazione di massa da immagini…**.
+
 ---
 
 ## 🛒 Capitolo 3: Utilizzo delle tessere alla cassa
@@ -90,7 +94,7 @@ Vai su **Impostazioni** (icona ingranaggio) per personalizzare l'applicazione:
 I tuoi dati appartengono solo a te. Crea regolarmente copie di backup.
 
 ### Esporta (Creazione copia)
-1. Vai su Impostazioni → **Esporta**.
+1. Vai al menu ("...") → **Strumenti → Esporta su file…**.
 2. Seleziona il formato:
    - **JSON**: Formato completo con tutti i dettagli (colori, icone, date, CVC, stato di archivio). Consigliato per il trasferimento su un altro dispositivo.
    - **CSV**: Formato tabellare (Nome, Codice, Tipo di codice, CVC, Nota). Comodo per la visualizzazione in Excel.
@@ -98,7 +102,7 @@ I tuoi dati appartengono solo a te. Crea regolarmente copie di backup.
 
 ### Importa (Ripristino copia)
 1. **Metodo automatico**: Trova il file `.json` o `.csv` salvato nel file manager e premilo. Seleziona «Apri con» → **DiscountCards**. L'applicazione avvierà automaticamente il processo di importazione.
-2. **Metodo manuale**: Vai su Impostazioni → **Importa** e seleziona il file manualmente.
+2. **Metodo manuale**: Vai al menu ("...") → **Strumenti → Importa da file…** e seleziona il file manualmente.
 3. **Seleziona la modalità di importazione**:
    - **Unisci (MERGE)**: Aggiunge le nuove tessere a quelle esistenti (consigliato).
    - **Sovrascrivi (OVERWRITE)**: Elimina completamente le tessere attuali e le sostituisce con i dati del file.

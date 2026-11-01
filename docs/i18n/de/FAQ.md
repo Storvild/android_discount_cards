@@ -38,9 +38,11 @@ Es gibt drei Methoden:
 3. **Aus Datei:** auf die Schaltfläche im Bereich „Kartennummer“ tippen und ein gespeichertes Barcode-Bild aus der Galerie oder dem Dateimanager auswählen.
 
 **Wie kann man schnell viele Karten hinzufügen?**  
+- **Massen-Scan mit Kamera:** Wählen Sie im Hauptmenü ("...") den Punkt *Werkzeuge → Massen-Scan…*. Die Kamera öffnet sich im kontinuierlichen Scan-Modus: Richten Sie sie nacheinander auf Barcodes, und die Karten werden automatisch gespeichert.
+- **Massenimport aus Bildern:** Wählen Sie im Menü *Werkzeuge → Massenimport aus Bildern…*. Wählen Sie mehrere Bilder aus der Galerie, und ML Kit erkennt die Barcodes darauf automatisch.
 - **Schaltfläche „Speichern & weitere hinzufügen“ (`+`):** Auf dem Erstellungs-/Bearbeitungsbildschirm befindet sich neben „Speichern“ die quadratische Schaltfläche `+`. Sie speichert die aktuelle Karte und bereitet das Formular für die nächste vor — Geschäft, Farbe, Icon und Format bleiben vorausgefüllt, der Cursor steht am Ende des Nummernfelds und Erstellungsdatum/Aufrufzähler werden zurückgesetzt.
 - **Funktion „Kopie erstellen…“:** Drücken Sie lange auf eine Karte in der Hauptliste (Kontextmenü) und wählen Sie **„Kopie erstellen…“**. Dadurch wird das Formular mit den kopierten Daten zum schnellen Speichern geöffnet.
-- **Stapel-Import aus Datei:** Unter *Einstellungen → Import* können Sie eine Kartenlistendatei (`JSON` oder `CSV`) importieren.
+- **Stapel-Import aus Datei:** Über *Werkzeuge → Aus Datei importieren…* können Sie eine Kartenlistendatei (`JSON` oder `CSV`) importieren.
 
 **Welche Barcode-Formate werden unterstützt?**  
 Die App erstellt und erkennt: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. Zudem gibt es den Modus `PHONE` für Karten, bei denen der Rabatt einfach über die Telefonnummer gewährt wird (wird in großem Text ohne Barcode-Erstellung angezeigt).
@@ -61,10 +63,10 @@ Ja, beim Bearbeiten einer Karte können Sie eine beliebige Notiz sowie ein Feld 
 ## 💾 Sicherung und Datenübertragung
 
 **Wie erstelle ich eine Sicherungskopie der Karten?**  
-Gehen Sie zu Einstellungen → Export. Sie können alle Daten im Format **JSON** (vollständige Datenstruktur, empfohlen) oder **CSV** (Tabelle, praktisch zur Anzeige in Excel) speichern.
+Öffnen Sie das Hauptmenü ("...") und wählen Sie **Werkzeuge → In Datei exportieren…**. Sie können alle Daten im Format **JSON** oder **CSV** speichern.
 
 **Wie übertrage ich Karten auf ein neues Telefon?**  
-1. Exportieren Sie auf dem alten Gerät die Karten in eine Datei (JSON oder CSV).
+1. Exportieren Sie auf dem alten Gerät die Karten in eine Datei über *Werkzeuge → In Datei exportieren…* (JSON oder CSV).
 2. Übertragen Sie diese Datei auf das neue Gerät (per Bluetooth, Messenger, Cloud oder USB).
 3. Öffnen Sie auf dem neuen Gerät die Datei über einen Dateimanager. Die App fängt die Aktion automatisch ab und bietet den Import der Karten an.
 

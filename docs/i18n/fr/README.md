@@ -36,6 +36,12 @@
 ## 📱 Principales fonctionnalités
 
 - 💳 **Gestion des cartes de fidélité** — ajout, modification, suppression individuelle ou en masse des cartes.
+- 🛠 **Menu « Outils »** — un sous-menu pratique dans le menu déroulant principal ("...") regroupant les opérations clés :
+  - 📤 **Exporter dans un fichier…** — sauvegarde des cartes au format JSON ou CSV.
+  - 📥 **Importer depuis un fichier…** — restauration des cartes à partir d'une sauvegarde.
+  - 📷 **Scan en masse…** — mode de numérisation continue des cartes par caméra (chaque code enregistré comme carte).
+  - 🖼️ **Importation en masse d'images…** — sélection multiple d'images dans la galerie avec reconnaissance automatique par ML Kit.
+  - 🗑 **Supprimer des cartes…** — suppression facile d'une ou plusieurs cartes sélectionnées.
 - 📷 **Scan et sélection de code-barres depuis un fichier** — scan en temps réel des cartes physiques via l'appareil photo (CameraX + ML Kit) ou sélection d'une image de code-barres depuis la galerie/le fichier.
 - 🔢 **Prise en charge de nombreux formats de codes-barres** — génération de codes-barres visuels à l'aide de la bibliothèque ZXing :
   - `QR_CODE`

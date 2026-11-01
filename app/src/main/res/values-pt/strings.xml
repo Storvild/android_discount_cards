@@ -14,6 +14,7 @@
     <string name="clear_search_desc">Limpar pesquisa</string>
     <string name="menu_options_desc">Menu de opções</string>
     <string name="menu_file">Ficheiro</string>
+    <string name="menu_tools">Ferramentas</string>
     <string name="menu_appearance">Tema escuro</string>
     <string name="menu_sort">Ordenar</string>
     <string name="menu_settings">Definições</string>
@@ -29,6 +30,18 @@
     <string name="share_json_action">Partilhar…</string>
     <string name="share_action">Partilhar…</string>
     <string name="add_card_action">Adicionar cartão…</string>
+    <string name="bulk_scan_action">Digitalização em massa…</string>
+    <string name="bulk_image_import_action">Importação em massa de imagens…</string>
+    <string name="bulk_scan_title">Digitalização em massa</string>
+    <string name="bulk_scan_instruction">Aponte a câmera para os códigos de barras dos cartões para digitalizá-los continuamente</string>
+    <string name="bulk_scan_count">Cartões adicionados nesta sessão: %1$d</string>
+    <string name="bulk_scan_last_added">Cartão adicionado: %1$s</string>
+    <string name="bulk_scan_finish">Concluir</string>
+    <string name="bulk_image_processing_title">Processando imagens…</string>
+    <string name="bulk_image_processing_progress">Processados %1$d de %2$d</string>
+    <string name="bulk_image_import_success">Cartões adicionados: %1$d de %2$d imagens</string>
+    <string name="bulk_image_import_partial">Cartões adicionados: %1$d (não reconhecidos: %2$d)</string>
+    <string name="bulk_image_import_none">Nenhum código de barras encontrado nas imagens</string>
     <string name="import_file_action">Importar de ficheiro…</string>
 
     <string name="delete_cards_action">Eliminar cartões…</string>

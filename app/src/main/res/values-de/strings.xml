@@ -14,6 +14,7 @@
     <string name="clear_search_desc">Suche löschen</string>
     <string name="menu_options_desc">Optionenmenü</string>
     <string name="menu_file">Datei</string>
+    <string name="menu_tools">Werkzeuge</string>
     <string name="menu_appearance">Dunkles Design</string>
     <string name="menu_sort">Sortieren</string>
     <string name="menu_settings">Einstellungen</string>
@@ -29,6 +30,18 @@
     <string name="share_json_action">Teilen…</string>
     <string name="share_action">Teilen…</string>
     <string name="add_card_action">Karte hinzufügen…</string>
+    <string name="bulk_scan_action">Massen-Scan…</string>
+    <string name="bulk_image_import_action">Massenimport aus Bildern…</string>
+    <string name="bulk_scan_title">Massen-Scan</string>
+    <string name="bulk_scan_instruction">Richten Sie die Kamera auf Barcodes, um sie nacheinander zu scannen</string>
+    <string name="bulk_scan_count">Hinzugefügte Karten in dieser Sitzung: %1$d</string>
+    <string name="bulk_scan_last_added">Hinzugefügte Karte: %1$s</string>
+    <string name="bulk_scan_finish">Fertigstellen</string>
+    <string name="bulk_image_processing_title">Bilder verarbeiten…</string>
+    <string name="bulk_image_processing_progress">%1$d von %2$d verarbeitet</string>
+    <string name="bulk_image_import_success">Hinzugefügte Karten: %1$d von %2$d Bildern</string>
+    <string name="bulk_image_import_partial">Hinzugefügte Karten: %1$d (nicht erkannt: %2$d)</string>
+    <string name="bulk_image_import_none">Keine Barcodes in den Bildern gefunden</string>
     <string name="import_file_action">Aus Datei importieren…</string>
 
     <string name="delete_cards_action">Karten löschen…</string>

@@ -38,9 +38,11 @@ Uygulamanın yalnızca bir izne ihtiyacı vardır ve bu izin **yalnızca kullan�
 3. **Dosyadan:** "Kart numarası" bölümündeki düğmeye basın ve galeriden veya dosya yöneticisinden kaydedilmiş barkod görselini seçin.
 
 **Hızlı bir şekilde çok sayıda kart nasıl eklenir?**  
-- **"Kaydet ve başka ekle" düğmesi (`+`):** Kart oluşturma/düzenleme ekranında "Kaydet" düğmesinin yanında kare bir `+` düğmesi bulunur. Mevcut kartı kaydeder ve sonraki kart için formu hazırlar — mağaza adı, renk, simge ve biçimi önceden doldurulmuş olarak tutar, imleci kodun sonuna yerleştirir ve tarih/görüntülenme sayısını sıfırlar.
-- **"Kopya oluştur…" özelliği:** Ana listedeki herhangi bir karta uzun basın (bağlam menüsü) ve **"Kopya oluştur…"** seçeneğini belirleyin. Bu, hızlı kaydetme için kopyalanan ayarlarla formu açar.
-- **Dosyadan toplu içe aktarma:** *Ayarlar → İçe Aktar* bölümünden bir kart listesi dosyasını (`JSON` veya `CSV`) yükleyebilirsiniz.
+- **Kamera ile toplu tarama:** Açılır menüden *Araçlar → Toplu tarama…* seçeneğini belirleyin. Kamera sürekli tarama modunda açılacak ve kartları kaydedecektir.
+- **Görsellerden toplu ekleme:** Açılır menüden *Araçlar → Görsellerden toplu ekleme…* seçeneğini belirleyin.
+- **"Kaydet ve başka ekle" düğmesi (`+`):** Kart oluşturma/düzenleme ekranındaki `+` düğmesini kullanın.
+- **"Kopya oluştur…" özelliği:** Kart listesinde uzun basarak **"Kopya oluştur…"** seçeneğini belirleyin.
+- **Dosyadan toplu içe aktarma:** *Araçlar → Dosyadan içe aktar…* menüsünden kart listesi dosyasını (`JSON` veya `CSV`) yükleyin.
 
 **Hangi barkod biçimleri destekleniyor?**  
 Uygulama şunları üretir ve tanır: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. Ayrıca, indirimin yalnızca telefon numarasıyla sağlandığı kartlar için `PHONE` modu vardır (büyük metin olarak görüntülenir, barkod üretilmez).
@@ -61,10 +63,10 @@ Evet, kartı düzenlerken isteğe bağlı notlar ve CVC/CVV kodu alanı ekleyebi
 ## 💾 Yedekleme ve Veri Aktarımı
 
 **Kartların yedeği nasıl oluşturulur?**  
-Ayarlar → Dışa Aktar'a gidin. Tüm verileri **JSON** (tam veri yapısı, önerilir) veya **CSV** (Excel'de görüntülemek için kullanışlı tablo) biçiminde kaydedebilirsiniz.
+Ana ekrandaki açılır menüyü ("...") açın ve **Araçlar → Dosyaya aktar…** seçeneğini belirleyin. Tüm verileri **JSON** veya **CSV** biçiminde kaydedebilirsiniz.
 
 **Kartlar yeni bir telefona nasıl aktarılır?**  
-1. Eski cihazda kartları bir dosyaya aktarın (JSON veya CSV).
+1. Eski cihazda kartları *Araçlar → Dosyaya aktar…* (JSON veya CSV) aracılığıyla bir dosyaya aktarın.
 2. Bu dosyayı yeni cihaza aktarın (Bluetooth, mesajlaşma uygulaması, bulut veya USB aracılığıyla).
 3. Yeni cihazda dosyayı dosya yöneticisi aracılığıyla açın. Uygulama eylemi otomatik olarak yakalayacak ve kartları içe aktarmayı önerecektir.
 

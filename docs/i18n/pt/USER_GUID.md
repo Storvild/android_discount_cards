@@ -35,6 +35,10 @@ Toque no botão flutuante **«+»** na tela principal. Você também pode tocar 
 4. *(Opcional)* Adicione uma nota ou código CVC/CVV.
 5. Toque em «Salvar».
 
+### 🚀 Adição rápida e em massa de cartões
+- **Digitalização em massa com a câmara:** No menu suspenso principal ("..."), selecione **Ferramentas → Digitalização em massa…**.
+- **Importação em massa de imagens:** No menu, selecione **Ferramentas → Importação em massa de imagens…**. Selecione vários ficheiros da galeria.
+
 ---
 
 ## 🛒 Capítulo 3: Uso dos cartões no caixa
@@ -90,7 +94,7 @@ Acesse as **Configurações** (ícone de engrenagem) para personalizar o aplicat
 Seus dados pertencem apenas a você. Crie cópias de segurança regularmente.
 
 ### Exportar (Criar cópia)
-1. Acesse Configurações → **Exportar**.
+1. Acesse o menu ("...") → **Ferramentas → Exportar para ficheiro…**.
 2. Selecione o formato:
    - **JSON**: Formato completo com todos os detalhes (cores, ícones, datas, CVC, status de arquivo). Recomendado para transferência para outro dispositivo.
    - **CSV**: Formato de tabela (Nome, Código, Tipo de código, CVC, Nota). Conveniente para visualização no Excel.
@@ -98,7 +102,7 @@ Seus dados pertencem apenas a você. Crie cópias de segurança regularmente.
 
 ### Importar (Restaurar cópia)
 1. **Método automático**: Localize o arquivo `.json` ou `.csv` salvo no gerenciador de arquivos e toque nele. Selecione «Abrir com» → **DiscountCards**. O aplicativo iniciará automaticamente o processo de importação.
-2. **Método manual**: Acesse Configurações → **Importar** e selecione o arquivo manualmente.
+2. **Método manual**: Acesse o menu ("...") → **Ferramentas → Importar de ficheiro…** e selecione o arquivo manualmente.
 3. **Selecione o modo de importação**:
    - **Mesclar (MERGE)**: Adiciona novos cartões aos existentes (recomendado).
    - **Substituir (OVERWRITE)**: Exclui completamente os cartões atuais e os substitui pelos dados do arquivo.

@@ -35,6 +35,10 @@ Appuyez sur le bouton flottant **« + »** sur l'écran principal. Vous pouvez �
 4. *(Optionnel)* Ajoutez une note ou un code CVC/CVV.
 5. Appuyez sur « Enregistrer ».
 
+### 🚀 Ajout rapide et en masse de plusieurs cartes
+- **Scan en masse par appareil photo :** Dans le menu déroulant principal ("..."), sélectionnez **Outils → Scan en masse…**. L'appareil photo s'ouvre en mode de numérisation continuous : pointez-le sur les cartes une par une.
+- **Importation en masse d'images :** Dans le menu, sélectionnez **Outils → Importation en masse d'images…**. Sélectionnez plusieurs fichiers dans la galerie et ML Kit créera les cartes.
+
 ---
 
 ## 🛒 Chapitre 3 : Utilisation des cartes à la caisse
@@ -90,7 +94,7 @@ Accédez aux **Paramètres** (icône d'engrenage) pour personnaliser l'applicati
 Vos données n'appartiennent qu'à vous. Créez régulièrement des sauvegardes.
 
 ### Exportation (Créer une copie)
-1. Accédez à Paramètres → **Exportation**.
+1. Accédez au menu ("...") → **Outils → Exporter dans un fichier…**.
 2. Sélectionnez le format :
    - **JSON** : Format complet avec tous les détails (couleurs, icônes, dates, CVC, statut d'archive). Recommandé pour le transfert vers un autre appareil.
    - **CSV** : Format tableau (Nom, Code, Type de code, CVC, Note). Pratique pour un affichage dans Excel.
@@ -98,7 +102,7 @@ Vos données n'appartiennent qu'à vous. Créez régulièrement des sauvegardes.
 
 ### Importation (Restauration d'une copie)
 1. **Méthode automatique** : Trouvez le fichier `.json` ou `.csv` enregistré dans votre gestionnaire de fichiers et appuyez dessus. Sélectionnez « Ouvrir avec » → **DiscountCards**. L'application lancera automatiquement le processus d'importation.
-2. **Méthode manuelle** : Accédez à Paramètres → **Importation** et sélectionnez le fichier manuellement.
+2. **Méthode manuelle** : Accédez au menu ("...") → **Outils → Importer depuis un fichier…** et sélectionnez le fichier manuellement.
 3. **Sélectionnez le mode d'importation** :
    - **Fusion (MERGE)** : Ajoute de nouvelles cartes aux cartes existantes (recommandé).
    - **Écraser (OVERWRITE)** : Supprime complètement les cartes actuelles et les remplace par les données du fichier.

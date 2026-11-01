@@ -38,9 +38,11 @@ Hay tres formas:
 3. **Desde archivo:** pulsar el botón en la sección "Número de tarjeta" y seleccionar una imagen guardada del código de barras desde la galería o el gestor de archivos.
 
 **¿Cómo añadir rápidamente muchas tarjetas?**  
-- **Botón «Guardar y añadir otra» (`+`):** en la pantalla de creación/edición de tarjeta, junto al botón «Guardar», hay un botón cuadrado `+`. Guarda la tarjeta actual y prepara el formulario para la siguiente (mantiene la tienda, color, icono y formato prellenados, sitúa el cursor al final del número y reinicia la fecha y las vistas).
+- **Escaneo masivo con cámara:** selecciona en el menú desplegable (*Herramientas → Escaneo masivo…*). La cámara se abrirá en modo de escaneo continuo: apúntala a los códigos de barras uno a uno.
+- **Importación masiva desde imágenes:** selecciona en el menú desplegable (*Herramientas → Importación masiva desde imágenes…*). Selecciona varias fotos de la galería y ML Kit reconocerá los códigos de barras.
+- **Botón «Guardar y añadir otra» (`+`):** en la pantalla de creación/edición de tarjeta, junto al botón «Guardar», hay un botón cuadrado `+`. Guarda la tarjeta actual y prepara el formulario para la siguiente.
 - **Función «Crear una copia…»:** mantén pulsada cualquier tarjeta en la lista principal (menú contextual) y selecciona **«Crear una copia…»**. Esto abre el formulario con los datos copiados para un guardado rápido.
-- **Importación masiva desde archivo:** en *Ajustes → Importar*, puedes cargar un archivo de lista de tarjetas (`JSON` o `CSV`).
+- **Importación masiva desde archivo:** en el menú *Herramientas → Importar de archivo…*, puedes cargar un archivo de lista de tarjetas (`JSON` o `CSV`).
 
 **¿Qué formatos de código de barras son compatibles?**  
 La aplicación genera y reconoce: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. También existe el modo `PHONE` para tarjetas donde el descuento se aplica simplemente por el número de teléfono (se muestra en texto grande, sin generar código de barras).
@@ -61,10 +63,10 @@ Sí, al editar una tarjeta puedes añadir una nota arbitraria, así como un camp
 ## 💾 Copia de seguridad y transferencia de datos
 
 **¿Cómo crear una copia de seguridad de las tarjetas?**  
-Ve a Ajustes → Exportar. Puedes guardar todos los datos en formato **JSON** (estructura de datos completa, recomendado) o **CSV** (tabla cómoda para ver en Excel).
+Abre el menú desplegable ("...") de la pantalla principal y selecciona **Herramientas → Exportar a archivo…**. Puedes guardar todos los datos en formato **JSON** o **CSV**.
 
 **¿Cómo transferir las tarjetas a un nuevo teléfono?**  
-1. En el dispositivo antiguo, exporta las tarjetas a un archivo (JSON o CSV).
+1. En el dispositivo antiguo, exporta las tarjetas a un archivo a través de *Herramientas → Exportar a archivo…* (JSON o CSV).
 2. Transfiere este archivo al nuevo dispositivo (vía Bluetooth, mensajería, nube o USB).
 3. En el nuevo dispositivo, abre el archivo a través del gestor de archivos. La aplicación interceptará automáticamente la acción y te propondrá importar las tarjetas.
 

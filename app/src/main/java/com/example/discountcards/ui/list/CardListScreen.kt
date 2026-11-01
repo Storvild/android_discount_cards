@@ -7,7 +7,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -15,11 +18,13 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -39,6 +44,7 @@ import com.example.discountcards.ui.list.components.CardListItem
 import com.example.discountcards.ui.list.components.EmptyState
 import com.example.discountcards.ui.list.components.CardListTopBar
 import com.example.discountcards.ui.list.components.FallbackDialogs
+import com.example.discountcards.ui.list.components.dialogs.BulkCameraBarcodeScannerDialog
 import com.example.discountcards.ui.list.components.dialogs.DeleteSelectionDialog
 import com.example.discountcards.ui.list.components.dialogs.ExportSelectionDialog
 import com.example.discountcards.ui.list.components.dialogs.ImportSelectionDialog
@@ -67,6 +73,16 @@ fun CardListScreen(
     val resources = context.resources
 
     var pendingExportFormat by remember { mutableStateOf(ExportFormat.JSON) }
+    var showBulkCameraScanner by remember { mutableStateOf(false) }
+
+    // Bulk image picker launcher
+    val bulkImagePickerLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetMultipleContents()
+    ) { uris ->
+        if (!uris.isNullOrEmpty()) {
+            viewModel.processBulkImages(context, uris)
+        }
+    }
 
     // SAF Launchers for Export and Import
     val exportJsonLauncher = rememberLauncherForActivityResult(
@@ -127,6 +143,19 @@ fun CardListScreen(
                     resources.getString(R.string.delete_cards_error, detail)
                 }
                 msg == "ARCHIVED_SUCCESS" -> resources.getString(R.string.archived_message)
+                msg.startsWith("BULK_IMAGE_SUCCESS:") -> {
+                    val parts = msg.removePrefix("BULK_IMAGE_SUCCESS:").split(":")
+                    val count = parts.getOrNull(0)?.toIntOrNull() ?: 0
+                    val total = parts.getOrNull(1)?.toIntOrNull() ?: 0
+                    resources.getString(R.string.bulk_image_import_success, count, total)
+                }
+                msg.startsWith("BULK_IMAGE_PARTIAL:") -> {
+                    val parts = msg.removePrefix("BULK_IMAGE_PARTIAL:").split(":")
+                    val count = parts.getOrNull(0)?.toIntOrNull() ?: 0
+                    val failed = parts.getOrNull(1)?.toIntOrNull() ?: 0
+                    resources.getString(R.string.bulk_image_import_partial, count, failed)
+                }
+                msg == "BULK_IMAGE_NONE" -> resources.getString(R.string.bulk_image_import_none)
                 else -> msg
             }
             Toast.makeText(context, displayMsg, Toast.LENGTH_SHORT).show()
@@ -167,6 +196,8 @@ fun CardListScreen(
                 onImportClick = { importLauncher.launch(allMimeTypes) },
                 onShareClick = { viewModel.prepareShareSelection() },
                 onAddCardClick = onAddCardClick,
+                onBulkScanClick = { showBulkCameraScanner = true },
+                onBulkImageImportClick = { bulkImagePickerLauncher.launch("image/*") },
                 onDeleteClick = { viewModel.prepareDeleteSelection() },
                 onArchiveClick = onArchiveClick,
                 currentThemeMode = currentThemeMode,
@@ -307,4 +338,42 @@ fun CardListScreen(
         exportedJson = uiState.exportedJson,
         onClearExportedJson = viewModel::clearExportedJson
     )
+
+    // Bulk Camera Scanner
+    if (showBulkCameraScanner) {
+        BulkCameraBarcodeScannerDialog(
+            onDismissRequest = { showBulkCameraScanner = false },
+            onBarcodeScanned = { cardNumber, barcodeFormat ->
+                viewModel.addScannedCard(cardNumber, barcodeFormat)
+            }
+        )
+    }
+
+    // Bulk Image Processing Progress Dialog
+    if (uiState.isProcessingBulkImages) {
+        AlertDialog(
+            onDismissRequest = { /* disallow dismiss during bulk image processing */ },
+            title = { Text(stringResource(R.string.bulk_image_processing_title)) },
+            text = {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 16.dp)
+                ) {
+                    CircularProgressIndicator()
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = stringResource(
+                            R.string.bulk_image_processing_progress,
+                            uiState.bulkImagesProcessed,
+                            uiState.bulkImagesTotal
+                        ),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
+            },
+            confirmButton = {}
+        )
+    }
 }

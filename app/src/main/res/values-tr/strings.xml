@@ -14,6 +14,7 @@
     <string name="clear_search_desc">Aramayı temizle</string>
     <string name="menu_options_desc">Seçenekler menüsü</string>
     <string name="menu_file">Dosya</string>
+    <string name="menu_tools">Araçlar</string>
     <string name="menu_appearance">Koyu tema</string>
     <string name="menu_sort">Sırala</string>
     <string name="menu_settings">Ayarlar</string>
@@ -29,6 +30,18 @@
     <string name="share_json_action">Paylaş…</string>
     <string name="share_action">Paylaş…</string>
     <string name="add_card_action">Kart ekle…</string>
+    <string name="bulk_scan_action">Bulk scanning…</string>
+    <string name="bulk_image_import_action">Bulk import from images…</string>
+    <string name="bulk_scan_title">Bulk scanning</string>
+    <string name="bulk_scan_instruction">Point the camera at card barcodes to scan them continuously</string>
+    <string name="bulk_scan_count">Cards added in session: %1$d</string>
+    <string name="bulk_scan_last_added">Card added: %1$s</string>
+    <string name="bulk_scan_finish">Finish</string>
+    <string name="bulk_image_processing_title">Processing images…</string>
+    <string name="bulk_image_processing_progress">Processed %1$d of %2$d</string>
+    <string name="bulk_image_import_success">Cards added: %1$d from %2$d images</string>
+    <string name="bulk_image_import_partial">Cards added: %1$d (unrecognized: %2$d)</string>
+    <string name="bulk_image_import_none">No barcodes found in images</string>
     <string name="import_file_action">Dosyadan içe aktar…</string>
 
     <string name="delete_cards_action">Kartları sil…</string>

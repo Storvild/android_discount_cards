@@ -14,6 +14,7 @@
     <string name="clear_search_desc">Effacer la recherche</string>
     <string name="menu_options_desc">Menu des options</string>
     <string name="menu_file">Fichier</string>
+    <string name="menu_tools">Outils</string>
     <string name="menu_appearance">Thème sombre</string>
     <string name="menu_sort">Trier</string>
     <string name="menu_settings">Paramètres</string>
@@ -29,6 +30,18 @@
     <string name="share_json_action">Partager…</string>
     <string name="share_action">Partager…</string>
     <string name="add_card_action">Ajouter une carte…</string>
+    <string name="bulk_scan_action">Scan en masse…</string>
+    <string name="bulk_image_import_action">Importation en masse d\'images…</string>
+    <string name="bulk_scan_title">Scan en masse</string>
+    <string name="bulk_scan_instruction">Pointez la caméra sur les codes-barres des cartes pour les scanner en continu</string>
+    <string name="bulk_scan_count">Cartes ajoutées dans cette session : %1$d</string>
+    <string name="bulk_scan_last_added">Carte ajoutée : %1$s</string>
+    <string name="bulk_scan_finish">Terminer</string>
+    <string name="bulk_image_processing_title">Traitement des images…</string>
+    <string name="bulk_image_processing_progress">%1$d sur %2$d traités</string>
+    <string name="bulk_image_import_success">Cartes ajoutées : %1$d sur %2$d images</string>
+    <string name="bulk_image_import_partial">Cartes ajoutées : %1$d (non reconnues : %2$d)</string>
+    <string name="bulk_image_import_none">Aucun code-barres trouvé dans les images</string>
     <string name="import_file_action">Importer depuis un fichier…</string>
 
     <string name="delete_cards_action">Supprimer des cartes…</string>

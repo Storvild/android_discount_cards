@@ -36,6 +36,12 @@
 ## 📱 Funzionalità principali
 
 - 💳 **Gestione delle tessere di fidelizzazione** — aggiunta, modifica e cancellazione individuale o in blocco delle tessere.
+- 🛠 **Menu "Strumenti"** — un comodo sottomenu nel menu a discesa della schermata principale ("...") che raggruppa le funzioni chiave:
+  - 📤 **Esporta su file…** — backup delle tessere in formato JSON o CSV.
+  - 📥 **Importa da file…** — ripristino delle tessere da un backup.
+  - 📷 **Scansione di massa…** — modalità di scansione continua dei codici a barre con la fotocamera.
+  - 🖼️ **Importazione di massa da immagini…** — selezione multipla di immagini dalla galleria con riconoscimento automatico via ML Kit.
+  - 🗑 **Elimina carte…** — eliminazione semplice di una o più tessere selezionate.
 - 📷 **Scansione e selezione del codice a barre da un file** — scansione in tempo reale delle tessere fisiche tramite fotocamera (CameraX + ML Kit) o selezione di un'immagine di codice a barre dalla galleria/dal file.
 - 🔢 **Supporto per molti formati di codice a barre** — generazione di codici a barre visivi con la libreria ZXing:
   - `QR_CODE`

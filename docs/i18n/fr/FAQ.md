@@ -37,10 +37,12 @@ Il existe trois méthodes :
 2. **Scan :** appuyer sur le bouton dans la section « Numéro de carte » avec l'icône de code QR et pointer l'appareil photo vers la carte physique (avec ML Kit pour une reconnaissance rapide).
 3. **Depuis un fichier :** appuyer sur le bouton dans la section « Numéro de carte » et sélectionner une image de code-barres enregistrée depuis la galerie ou le gestionnaire de fichiers.
 
-**Comment ajouter rapidement plusieurs cartes ?**  
-- **Bouton « Enregistrer & ajouter une autre » (`+`) :** sur l'écran de création/modification, à côté du bouton « Enregistrer », se trouve un bouton carré `+`. Il enregistre la carte actuelle et prépare le formulaire pour la suivante (conserve le magasin, la couleur, l'icône et le format préremplis, place le curseur à la fin du numéro et réinitialise la date et le compteur d'affichages).
-- **Fonction « Créer une copie… » :** appuyez longuement sur une carte dans la liste principale (menu contextuel) et sélectionnez **« Créer une copie… »**. Cela ouvre le formulaire prérempli pour un enregistrement rapide.
-- **Importation en lot depuis un fichier :** dans *Paramètres → Importer*, vous pouvez charger un fichier de cartes (`JSON` ou `CSV`).
+**Comment ajouter rapidement plusieurs cartes ?**  
+- **Scan en masse par appareil photo :** sélectionnez le menu déroulant (*Outils → Scan en masse…*). L'appareil photo s'ouvre en mode de numérisation continue : pointez-le sur les codes-barres des cartes l'un après l'autre, et les cartes seront enregistrées.
+- **Importation en masse d'images :** sélectionnez le menu déroulant (*Outils → Importation en masse d'images…*). Choisissez plusieurs photos de la galerie, et ML Kit reconnaîtra leurs codes-barres.
+- **Bouton « Enregistrer & ajouter une autre » (`+`) :** sur l'écran de création/modification, à côté du bouton « Enregistrer », se trouve un bouton carré `+`. Il enregistre la carte actuelle et prépare le formulaire pour la suivante.
+- **Fonction « Créer une copie… » :** appuyez longuement sur une carte dans la liste principale (menu contextuel) et sélectionnez **« Créer une copie… »**. Cela ouvre le formulaire prérempli pour un enregistrement rapide.
+- **Importation en lot depuis un fichier :** dans le menu *Outils → Importer depuis un fichier…*, vous pouvez charger un fichier de cartes (`JSON` ou `CSV`).
 
 **Quels formats de codes-barres sont pris en charge ?**  
 L'application génère et reconnaît : `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. Il existe également un mode `PHONE` pour les cartes où la réduction est accordée simplement par numéro de téléphone (affiché en grand texte, sans génération de code-barres).
@@ -61,10 +63,10 @@ Oui, lors de la modification d'une carte, vous pouvez ajouter une note personnal
 ## 💾 Sauvegarde et transfert de données
 
 **Comment créer une sauvegarde des cartes ?**  
-Accédez à Paramètres → Exportation. Vous pouvez enregistrer toutes les données au format **JSON** (structure de données complète, recommandé) ou **CSV** (tableau, pratique pour affichage dans Excel).
+Ouvrez le menu déroulant ("...") de l'écran principal et sélectionnez **Outils → Exporter dans un fichier…**. Vous pouvez enregistrer toutes les données au format **JSON** ou **CSV**.
 
 **Comment transférer les cartes vers un nouveau téléphone ?**  
-1. Sur l'ancien appareil, exportez les cartes dans un fichier (JSON ou CSV).
+1. Sur l'ancien appareil, exportez les cartes dans un fichier via *Outils → Exporter dans un fichier…* (JSON ou CSV).
 2. Transférez ce fichier sur le nouvel appareil (via Bluetooth, messagerie, cloud ou USB).
 3. Sur le nouvel appareil, ouvrez le fichier via un gestionnaire de fichiers. L'application interceptera automatiquement l'action et proposera d'importer les cartes.
 

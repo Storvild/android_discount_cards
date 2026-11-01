@@ -14,6 +14,7 @@
     <string name="clear_search_desc">खोज साफ़ करें</string>
     <string name="menu_options_desc">विकल्प मेनू</string>
     <string name="menu_file">फ़ाइल</string>
+    <string name="menu_tools">उपकरण</string>
     <string name="menu_appearance">डार्क थीम</string>
     <string name="menu_sort">क्रमबद्ध करें</string>
     <string name="menu_settings">सेटिंग्स</string>
@@ -29,6 +30,18 @@
     <string name="share_json_action">साझा करें…</string>
     <string name="share_action">साझा करें…</string>
     <string name="add_card_action">कार्ड जोड़ें…</string>
+    <string name="bulk_scan_action">Bulk scanning…</string>
+    <string name="bulk_image_import_action">Bulk import from images…</string>
+    <string name="bulk_scan_title">Bulk scanning</string>
+    <string name="bulk_scan_instruction">Point the camera at card barcodes to scan them continuously</string>
+    <string name="bulk_scan_count">Cards added in session: %1$d</string>
+    <string name="bulk_scan_last_added">Card added: %1$s</string>
+    <string name="bulk_scan_finish">Finish</string>
+    <string name="bulk_image_processing_title">Processing images…</string>
+    <string name="bulk_image_processing_progress">Processed %1$d of %2$d</string>
+    <string name="bulk_image_import_success">Cards added: %1$d from %2$d images</string>
+    <string name="bulk_image_import_partial">Cards added: %1$d (unrecognized: %2$d)</string>
+    <string name="bulk_image_import_none">No barcodes found in images</string>
     <string name="import_file_action">फ़ाइल से आयात करें…</string>
 
     <string name="delete_cards_action">कार्ड हटाएं…</string>

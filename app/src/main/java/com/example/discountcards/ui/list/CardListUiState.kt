@@ -39,6 +39,11 @@ data class CardListUiState(
     val selectedImportIndexes: Set<Int> = emptySet(),
     val existingStoreNames: Set<String> = emptySet(),
     val importMode: ImportMode = ImportMode.MERGE,
-    val duplicateStrategy: DuplicateStrategy = DuplicateStrategy.UPDATE_EXISTING
+    val duplicateStrategy: DuplicateStrategy = DuplicateStrategy.UPDATE_EXISTING,
+
+    // Bulk image processing state
+    val isProcessingBulkImages: Boolean = false,
+    val bulkImagesTotal: Int = 0,
+    val bulkImagesProcessed: Int = 0
 )
 

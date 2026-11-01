@@ -35,6 +35,10 @@ Pulsa el botón flotante **«+»** en la pantalla principal. También puedes pul
 4. *(Opcional)* Añade una nota o código CVC/CVV.
 5. Pulsa «Guardar».
 
+### 🚀 Añadido rápido y masivo de tarjetas
+- **Escaneo masivo con cámara:** En el menú desplegable principal ("..."), selecciona **Herramientas → Escaneo masivo…**. La cámara se abrirá en modo de escaneo continuo.
+- **Importación masiva desde imágenes:** En el menú, selecciona **Herramientas → Importación masiva desde imágenes…**. Selecciona varios archivos de la galería.
+
 ---
 
 ## 🛒 Capítulo 3: Uso de tarjetas en la caja
@@ -90,7 +94,7 @@ Ve a **Ajustes** (icono de engranaje) para personalizar la aplicación:
 Tus datos te pertenecen solo a ti. Crea copias de seguridad con regularidad.
 
 ### Exportar (Crear copia)
-1. Ve a Ajustes → **Exportar**.
+1. Ve al menú ("...") → **Herramientas → Exportar a archivo…**.
 2. Selecciona el formato:
    - **JSON**: Formato completo con todos los detalles (colores, iconos, fechas, CVC, estado de archivo). Recomendado para transferir a otro dispositivo.
    - **CSV**: Formato de tabla (Nombre, Código, Tipo de código, CVC, Nota). Cómodo para ver en Excel.
@@ -98,7 +102,7 @@ Tus datos te pertenecen solo a ti. Crea copias de seguridad con regularidad.
 
 ### Importar (Restaurar copia)
 1. **Método automático**: Localiza el archivo `.json` o `.csv` guardado en el gestor de archivos y pulsa sobre él. Selecciona «Abrir con» → **DiscountCards**. La aplicación iniciará automáticamente el proceso de importación.
-2. **Método manual**: Ve a Ajustes → **Importar** y selecciona el archivo manualmente.
+2. **Método manual**: Ve al menú ("...") → **Herramientas → Importar de archivo…** y selecciona el archivo manualmente.
 3. **Selecciona el modo de importación**:
    - **Combinar (MERGE)**: Añade nuevas tarjetas a las existentes (recomendado).
    - **Sobrescribir (OVERWRITE)**: Elimina por completo las tarjetas actuales y las reemplaza con los datos del archivo.

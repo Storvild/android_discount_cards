@@ -36,6 +36,12 @@
 ## 📱 Hauptfunktionen
 
 - 💳 **Verwaltung von Kundenkarten** — Hinzufügen, Bearbeiten und individuelles oder massenhaftes Löschen von Karten.
+- 🛠 **Menü "Werkzeuge"** — ein praktisches Untermenü im Hauptmenü ("..."), das alle wichtigen Funktionen bündelt:
+  - 📤 **In Datei exportieren…** — Sicherung der Karten im JSON- oder CSV-Format.
+  - 📥 **Aus Datei importieren…** — Wiederherstellung von Karten aus einem Backup.
+  - 📷 **Massen-Scan…** — kontinuierliches Scannen von Barcodes mit der Kamera (jeder gescannte Barcode wird als Karte gespeichert).
+  - 🖼️ **Massenimport aus Bildern…** — Auswahl mehrerer Bilder aus der Galerie mit automatischer Erkennung und Kartenerstellung via ML Kit.
+  - 🗑 **Karten löschen…** — einfaches Löschen einer oder mehrerer ausgewählter Karten.
 - 📷 **Barcode-Scan und Barcode-Auswahl aus einer Datei** — Scannen physischer Karten in Echtzeit mit der Kamera (CameraX + ML Kit) oder Auswahl eines Barcode-Bilds aus der Galerie/Datei.
 - 🔢 **Unterstützung vieler Barcode-Formate** — Erstellen visueller Barcodes mit der ZXing-Bibliothek:
   - `QR_CODE`

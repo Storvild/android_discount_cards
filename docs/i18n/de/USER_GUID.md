@@ -35,6 +35,12 @@ Tippen Sie auf die schwebende Schaltfläche **„+“** auf dem Hauptbildschirm.
 4. *(Optional)* Fügen Sie eine Notiz oder einen CVC/CVV-Code hinzu.
 5. Tippen Sie auf „Speichern“.
 
+### 🚀 Schnelles und Massenhinzufügen von Karten
+- **Massen-Scan mit Kamera:** Wählen Sie im Menü ("...") den Punkt **Werkzeuge → Massen-Scan…**. Die Kamera öffnet sich im kontinuierlichen Scan-Modus. Richten Sie sie nacheinander auf Barcodes.
+- **Massenimport aus Bildern:** Wählen Sie im Menü **Werkzeuge → Massenimport aus Bildern…**. Wählen Sie mehrere Bilder aus der Galerie, und ML Kit erstellt daraus Karten.
+- **Schaltfläche „Speichern & weitere hinzufügen“ (`+`):** Tippen Sie auf die quadratische `+`-Taste neben „Speichern“.
+- **Kontextmenü „Kopie erstellen…“:** Drücken Sie lange auf eine Karte in der Liste.
+
 ---
 
 ## 🛒 Kapitel 3: Nutzung der Karten an der Kasse

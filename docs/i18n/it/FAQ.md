@@ -38,9 +38,11 @@ Ci sono tre modi:
 3. **Da file:** premere il pulsante nella sezione "Numero tessera" e selezionare un'immagine salvata del codice a barre dalla galleria o dal file manager.
 
 **Come aggiungere rapidamente molte carte?**  
-- **Pulsante "Salva e aggiungi un'altra" (`+`):** nella schermata di creazione/modifica della carta, accanto al pulsante "Salva", c'è un pulsante quadrato `+`. Salva la carta corrente e prepara il modulo per la successiva — mantenendo nome negozio, colore, icona e formato precompilati, posizionando il cursore alla fine del numero e azzerando data e conteggio visualizzazioni.
-- **Funzione "Crea una copia…":** premi a lungo su qualsiasi carta nell'elenco principale (menu contestuale) e seleziona **"Crea una copia…"**. Si aprirà il modulo precompilato per un salvataggio rapido.
-- **Importazione di massa da file:** in *Impostazioni → Importa*, puoi caricare un file con l'elenco delle carte (`JSON` o `CSV`).
+- **Scansione di massa con fotocamera:** seleziona dal menu a discesa (*Strumenti → Scansione di massa…*). La fotocamera si aprirà in modalità di scansione continua.
+- **Importazione di massa da immagini:** seleziona dal menu a discesa (*Strumenti → Importazione di massa da immagini…*). Seleziona più immagini dalla galleria.
+- **Pulsante "Salva e aggiungi un'altra" (`+`):** nella schermata di creazione/modifica c'è un pulsante quadrato `+`.
+- **Funzione "Crea una copia…":** premi a lungo su qualsiasi carta nell'elenco e seleziona **"Crea una copia…"**.
+- **Importazione di massa da file:** nel menu *Strumenti → Importa da file…*, puoi caricare un file (`JSON` o `CSV`).
 
 **Quali formati di codice a barre sono supportati?**  
 L'applicazione genera e riconosce: `QR_CODE`, `CODE_128`, `EAN_13`, `EAN_8`, `UPC_A`, `CODE_39`, `PDF_417`, `AZTEC`. È disponibile anche la modalità `PHONE` per le tessere in cui lo sconto viene applicato semplicemente tramite numero di telefono (visualizzato a caratteri grandi, senza generazione del codice a barre).
@@ -61,10 +63,10 @@ Sì, durante la modifica di una tessera è possibile aggiungere una nota a piace
 ## 💾 Backup e trasferimento dati
 
 **Come creare una copia di backup delle tessere?**  
-Vai su Impostazioni → Esporta. Puoi salvare tutti i dati in formato **JSON** (struttura dati completa, consigliato) o **CSV** (tabella comoda da visualizzare in Excel).
+Apri il menu a discesa della schermata principale ("...") e seleziona **Strumenti → Esporta su file…**. Puoi salvare tutti i dati in formato **JSON** o **CSV**.
 
 **Come trasferire le tessere su un nuovo telefono?**  
-1. Sul vecchio dispositivo, esporta le tessere in un file (JSON o CSV).
+1. Sul vecchio dispositivo, esporta le tessere in un file tramite *Strumenti → Esporta su file…* (JSON o CSV).
 2. Trasferisci questo file sul nuovo dispositivo (tramite Bluetooth, messaggistica, cloud o USB).
 3. Sul nuovo dispositivo, apri il file tramite il file manager. L'applicazione intercetterà automaticamente l'azione e proporrà di importare le tessere.
 

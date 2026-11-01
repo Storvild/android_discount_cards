@@ -36,6 +36,12 @@
 ## 📱 Main features
 
 - 💳 **Loyalty card management** — add, edit, and delete cards individually or in bulk.
+- 🛠 **"Tools" menu** — a convenient submenu in the main screen drop-down menu ("...") grouping key operations:
+  - 📤 **Export to file…** — back up cards in JSON or CSV format.
+  - 📥 **Import from file…** — restore cards from a JSON/CSV backup.
+  - 📷 **Bulk scanning…** — continuous camera barcode scanning mode (each scanned barcode is saved as a card with store name = code).
+  - 🖼️ **Bulk import from images…** — batch selection of multiple images from the gallery with automated ML Kit barcode recognition and card creation.
+  - 🗑 **Delete cards…** — convenient deletion of one or multiple selected cards.
 - 📷 **Barcode scanning and barcode selection from a file** — real-time scanning of physical cards with the camera (CameraX + ML Kit) or selecting a barcode image from the gallery/file.
 - 🔢 **Support for multiple barcode formats** — generation of visual barcodes using the ZXing library:
   - `QR_CODE`

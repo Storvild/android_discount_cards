@@ -35,6 +35,10 @@ Ana ekrandaki yüzen **«+»** düğmesine basın. Ayrıca menüdeki "Kart ekle.
 4. *(İsteğe bağlı)* Not veya CVC/CVV kodu ekleyin.
 5. «Kaydet» düğmesine basın.
 
+### 🚀 Hızlı ve Toplu Kart Ekleme
+- **Kamera ile toplu tarama:** Ana ekran açılır menüsünden ("...") **Araçlar → Toplu tarama…** seçeneğini belirleyin.
+- **Görsellerden toplu ekleme:** Menüden **Araçlar → Görsellerden toplu ekleme…** seçeneğini belirleyin.
+
 ---
 
 ## 🛒 Bölüm 3: Kartların Kasede Kullanımı
@@ -90,7 +94,7 @@ Uygulamayı kişiselleştirmek için **Ayarlar**'a (çark simgesi) gidin:
 Verileriniz yalnızca size aittir. Düzenli olarak yedek oluşturun.
 
 ### Dışa Aktarma (Kopya Oluşturma)
-1. Ayarlar → **Dışa Aktar**'a gidin.
+1. Menüye ("...") gidin → **Araçlar → Dosyaya aktar…**.
 2. Biçim seçin:
    - **JSON**: Tüm detayları içeren tam biçim (renkler, simgeler, tarihler, CVC, arşiv durumu). Başka bir cihaza aktarma için önerilir.
    - **CSV**: Tablo biçimi (İsim, Kod, Kod Tipi, CVC, Not). Excel'de görüntülemek için kullanışlıdır.
@@ -98,7 +102,7 @@ Verileriniz yalnızca size aittir. Düzenli olarak yedek oluşturun.
 
 ### İçe Aktarma (Kopyayı Geri Yükleme)
 1. **Otomatik Yöntem**: Dosya yöneticisinde kaydedilmiş `.json` veya `.csv` dosyasını bulun ve üzerine basın. «Şununla aç» → **DiscountCards** seçin. Uygulama otomatik olarak içe aktarma sürecini başlatacaktır.
-2. **Manuel Yöntem**: Ayarlar → **İçe Aktar**'a gidin ve dosyayı manuel olarak seçin.
+2. **Manuel Yöntem**: Menüye ("...") gidin → **Araçlar → Dosyadan içe aktar…** ve dosyayı seçin.
 3. **İçe aktarma modunu seçin**:
    - **Birleştirme (MERGE)**: Yeni kartları mevcut olanlara ekler (önerilir).
    - **Yazma (OVERWRITE)**: Mevcut kartları tamamen siler ve dosyadan gelen verilerle değiştirir.
