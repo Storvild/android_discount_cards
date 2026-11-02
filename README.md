@@ -1,4 +1,4 @@
-Translations 📚 · [EN](docs/i18n/en/README.md) · [FR](docs/i18n/fr/README.md) · [DE](docs/i18n/de/README.md) · [ES](docs/i18n/es/README.md) · [PT](docs/i18n/pt/README.md) · [IT](docs/i18n/it/README.md) · [JA](docs/i18n/ja/README.md) · [HI](docs/i18n/hi/README.md) · [AR](docs/i18n/ar/README.md) · [TR](docs/i18n/tr/README.md) · [ZH](docs/i18n/zh/README.md)
+[EN](docs/i18n/en/README.md) · [FR](docs/i18n/fr/README.md) · [DE](docs/i18n/de/README.md) · [ES](docs/i18n/es/README.md) · [PT](docs/i18n/pt/README.md) · [IT](docs/i18n/it/README.md) · [JA](docs/i18n/ja/README.md) · [HI](docs/i18n/hi/README.md) · [AR](docs/i18n/ar/README.md) · [TR](docs/i18n/tr/README.md) · [ZH](docs/i18n/zh/README.md) · [RU](README.md)
 
 📖 [Руководство пользователя](USER_GUID.md) | ❓ [Часто задаваемые вопросы (FAQ)](FAQ.md)
 
@@ -172,3 +172,10 @@ Translations 📚 · [EN](docs/i18n/en/README.md) · [FR](docs/i18n/fr/README.md
 ## 📄 Лицензия
 
 Проект распространяется на условиях лицензии, указанной в файле [LICENSE](./LICENSE).
+
+---
+
+**Translations 📚**
+**README:** [EN](docs/i18n/en/README.md) · [FR](docs/i18n/fr/README.md) · [DE](docs/i18n/de/README.md) · [ES](docs/i18n/es/README.md) · [PT](docs/i18n/pt/README.md) · [IT](docs/i18n/it/README.md) · [JA](docs/i18n/ja/README.md) · [HI](docs/i18n/hi/README.md) · [AR](docs/i18n/ar/README.md) · [TR](docs/i18n/tr/README.md) · [ZH](docs/i18n/zh/README.md)
+**USER_GUID:** [EN](docs/i18n/en/USER_GUID.md) · [FR](docs/i18n/fr/USER_GUID.md) · [DE](docs/i18n/de/USER_GUID.md) · [ES](docs/i18n/es/USER_GUID.md) · [PT](docs/i18n/pt/USER_GUID.md) · [IT](docs/i18n/it/USER_GUID.md) · [JA](docs/i18n/ja/USER_GUID.md) · [HI](docs/i18n/hi/USER_GUID.md) · [AR](docs/i18n/ar/USER_GUID.md) · [TR](docs/i18n/tr/USER_GUID.md) · [ZH](docs/i18n/zh/USER_GUID.md)
+**FAQ:** [EN](docs/i18n/en/FAQ.md) · [FR](docs/i18n/fr/FAQ.md) · [DE](docs/i18n/de/FAQ.md) · [ES](docs/i18n/es/FAQ.md) · [PT](docs/i18n/pt/FAQ.md) · [IT](docs/i18n/it/FAQ.md) · [JA](docs/i18n/ja/FAQ.md) · [HI](docs/i18n/hi/FAQ.md) · [AR](docs/i18n/ar/FAQ.md) · [TR](docs/i18n/tr/FAQ.md) · [ZH](docs/i18n/zh/FAQ.md)
