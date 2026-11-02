@@ -60,6 +60,28 @@ Sì, durante la modifica di una tessera è possibile aggiungere una nota a piace
 
 ---
 
+## 🏭 Casi d'uso aggiuntivi
+
+**In quali altri modi posso usare l'applicazione?**
+DiscountCards è utile non solo per le carte di fedeltà e sconto, ma anche per altri compiti legati ai codici a barre. È particolarmente prezioso **in luoghi senza accesso alla rete** (seminterrati degli ipermercati, magazzini, zone rurali): tutti i dati sono conservati in locale e disponibili istantaneamente; puoi inviarli in ufficio in seguito tramite qualsiasi connessione o cavo.
+
+- **📦 Scansione in massa in magazzino** — usa la modalità *Scansione in massa…* per scansionare in continuo i codici a barre dei prodotti nel magazzino. Ogni codice scansionato viene salvato automaticamente come nuova carta, il cui nome coincide con il codice.
+- **📋 Inventario** — scansiona tutti gli articoli uno dopo l'altro in modalità di scansione in massa, poi esporta il risultato in **CSV** per elaborarlo in Excel o in un altro foglio di calcolo.
+- **📷 Importazione in blocco da foto** — se hai già foto di prodotti con codici a barre, scegli *Aggiunta in blocco da immagini…* e carica più foto in una sola volta. L'app riconosce i codici a barre tramite ML Kit e crea le carte automaticamente.
+- **✏️ Inserimento in blocco con nomi personalizzati** — se ti serve un nome significativo anziché un semplice codice, usa il pulsante **«Salva e aggiungi un nuovo»** (il quadratino `+` accanto a «Salva») nel modulo di modifica. Dopo ogni scansione o inserimento manuale, salvi la carta, modifichi il nome e premi di nuovo `+` — formato, colore, icona e negozio restano precompilati.
+
+> [!TIP]
+> In modalità di scansione in massa e in blocco da immagini, il nome della carta è identico al codice a barre. Per impostare un nome personalizzato, usa il pulsante «Salva e aggiungi un nuovo» oppure modifica la carta dopo averla creata.
+
+**Come invio i dati scansionati a un computer o in ufficio?**
+Dopo la scansione puoi inviare i dati raccolti in qualsiasi modo comodo:
+- **📤 Esporta in file (JSON / CSV):** scegli *Strumenti → Esporta in file…*, salva il file JSON o CSV sul dispositivo e trasmettilo in ufficio o alla contabilità.
+- **📲 Condividi (Share):** la stessa funzione *Strumenti → Condividi…* apre il menu di sistema di Android — puoi inviare il file **direttamente a un messenger** (Telegram, WhatsApp, Signal), **via e-mail** (Gmail, Outlook, ecc.), **nella cloud** (Drive, Dropbox, OneDrive) o a qualsiasi altra app installata sul telefono.
+- **📧 Via e-mail:** scegli semplicemente il tuo client di posta elettronica dal menu «Condividi» e allega il file — funziona anche tramite MMS, se il tuo client lo supporta.
+- **🔁 Trasferisci su un altro dispositivo:** invia il file via Bluetooth, Wi-Fi Direct o cavo USB, poi aprilo su un altro telefono o computer.
+
+---
+
 ## 💾 Backup e trasferimento dati
 
 **Come creare una copia di backup delle tessere?**  

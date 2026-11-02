@@ -60,6 +60,28 @@ Evet, kartı düzenlerken isteğe bağlı notlar ve CVC/CVV kodu alanı ekleyebi
 
 ---
 
+## 🏭 Ek Kullanım Senaryoları
+
+**Uygulamayı başka nasıl kullanabilirim?**
+DiscountCards yalnızca sadakat ve indirim kartları için değil, barkodlarla ilgili diğer görevler için de harika bir araçtır. Özellikle **ağ erişimi olmayan yerlerde** (hipermarket bodrumları, depolar, kırsal bölgeler) çok değerlidir — tüm veriler yerel olarak saklanır ve anında kullanılabilir, sonrasında herhangi bir bağlantı ya da kabloyla ofisinize aktarabilirsiniz.
+
+- **📦 Depoda toplu tarama** — *Toplu tarama…* modunu kullanarak depodaki ürün barkodlarını kesintisiz olarak tarayın. Her taranan barkod, ismi kendine eşit olan yeni bir kart olarak otomatik kaydedilir.
+- **📋 Stok sayımı** — toplu tarama modunda tüm ürünleri sırayla tarayın, ardından sonucu **CSV** olarak dışa aktararak Excel veya başka bir tablo düzenleyicide işleyin.
+- **📷 Fotoğraflardan toplu ekleme** — ürünlerin barkodlu fotoğraflarınız varsa, *Görsellerden toplu ekleme…* seçeneğini kullanın ve birden fazla fotoğrafı aynı anda yükleyin. Uygulama ML Kit aracılığıyla barkodları tanıyarak kartları otomatik oluşturur.
+- **✏️ İsim düzenleyerek toplu giriş** — sadece barkod numarası yerine anlamlı bir isim girmek istiyorsanız, düzenleme formundaki **«Kaydet ve Yeni Ekle»** (kare `+` düğmesi, «Kaydet» düğmesinin yanında) düğmesini kullanın. Her tarama veya elle girişten sonra kartı kaydedin, ismi değiştirin ve tekrar `+` basın — format, renk, ikon ve mağaza önceden dolu kalır.
+
+> [!TIP]
+> Toplu tarama modunda ve görsellerden toplu eklemede kart ismi barkod ile eşittir. Özel bir isim vermek isterseniz «Kaydet ve Yeni Ekle» düğmesini kullanın ya da kartı oluşturduktan sonra düzenleyin.
+
+**Taranan verileri bilgisayara ya da ofise nasıl gönderirim?**
+Taramadan sonra derlenen verileri istediğiniz şekilde gönderebilirsiniz:
+- **📤 Dosyaya dışa aktar (JSON / CSV):** *Araçlar → Dosyaya dışa aktar…* seçin, JSON veya CSV dosyasını cihaza kaydedin ve ofise ya da muhasebeye iletin.
+- **📲 Paylaş (Share):** aynı *Araçlar → Paylaş…* özelliği Android sistem menüsünü açar — dosyayı **doğrudan bir mesajlaşma uygulamasına** (Telegram, WhatsApp, Signal), **e-postaya** (Gmail, Outlook vb.) ya da **buluta** (Drive, Dropbox, OneDrive) gönderebilir ya da telefonda yüklü diğer bir uygulamaya aktarabilirsiniz.
+- **📧 E-posta ile:** Paylaş menüsünden e-posta istemcinizi seçip dosyayı eklemeniz yeterli — e-posta istemciniz destekliyorsa düz MMS ile de çalışır.
+- **🔁 Başka bir cihaza aktarın:** dosyayı Bluetooth, Wi-Fi Direct ya da USB kablosu ile gönderin, ardından başka bir telefonda ya da bilgisayarda açın.
+
+---
+
 ## 💾 Yedekleme ve Veri Aktarımı
 
 **Kartların yedeği nasıl oluşturulur?**  

@@ -60,6 +60,28 @@ Sí, al editar una tarjeta puedes añadir una nota arbitraria, así como un camp
 
 ---
 
+## 🏭 Casos de uso adicionales
+
+**¿Qué otras formas hay de usar la aplicación?**
+DiscountCards es útil no solo para tarjetas de fidelidad y descuentos, sino también para otras tareas relacionadas con códigos de barras. Resulta especialmente valioso **en lugares sin acceso a red** (sótanos de hipermarcados, almacenes, zonas rurales): todos los datos se guardan localmente y están disponibles al instante, y puede transferirlos más tarde a su oficina por cualquier medio (conexión o cable).
+
+- **📦 Escaneo masivo en el almacén** — use el modo *Escaneo masivo…* para escanear de forma continua los códigos de barras de productos en el almacén. Cada código escaneado se guarda automáticamente como una nueva tarjeta cuyo nombre es igual al código.
+- **📋 Inventario** — escanee todos los artículos uno por uno en modo de escaneo masivo y luego exporte el resultado a **CSV** para procesarlo después en Excel u otra hoja de cálculo.
+- **📷 Lote de imágenes** — si ya tiene fotos de productos con códigos de barras, elija *Agrupar desde imágenes…* e importe varias fotos a la vez. La aplicación reconoce los códigos mediante ML Kit y crea las tarjetas automáticamente.
+- **✏️ Lote con nombres personalizados** — si necesita nombres significativos en lugar de códigos, use el botón **«Guardar y añadir nueva»** (el cuadrado `+` junto a «Guardar») en el formulario de edición. Tras cada escaneo o entrada manual, guarde la tarjeta, cambie el nombre y pulse `+` de nuevo: formato, color, icono y tienda quedan predefinidos.
+
+> [!TIP]
+> En el modo de escaneo masivo y al agrupar desde imágenes, el nombre de la tarjeta coincide con el código de barras. Para asignar un nombre personalizado, use el botón «Guardar y añadir nueva» o edite la tarjeta después de crearla.
+
+**¿Cómo envío los datos escaneados a un ordenador o a la oficina?**
+Después del escaneo, puede enviar los datos recopilados de la forma más práctica:
+- **📤 Exportar a un archivo (JSON / CSV):** elija *Herramientas → Exportar a archivo…*, guarde el JSON o CSV en el dispositivo y páselo a la oficina o a la contabilidad.
+- **📲 Compartir (Share):** la misma función *Herramientas → Compartir…* abre el menú de sistema de Android: puede enviar el archivo **directamente a un mensajero** (Telegram, WhatsApp, Signal), **por correo electrónico** (Gmail, Outlook, etc.), **a la nube** (Drive, Dropbox, OneDrive) o a cualquier otra app instalada en el teléfono.
+- **📧 Por correo electrónico:** simplemente elija su cliente de correo en el menú «Compartir» y adjunte el archivo; funciona incluso por MMS si su cliente de correo lo permite.
+- **🔁 Transferir a otro dispositivo:** envíe el archivo por Bluetooth, Wi-Fi Direct o cable USB, y ábralo después en otro teléfono u ordenador.
+
+---
+
 ## 💾 Copia de seguridad y transferencia de datos
 
 **¿Cómo crear una copia de seguridad de las tarjetas?**  

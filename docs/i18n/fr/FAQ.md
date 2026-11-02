@@ -60,6 +60,28 @@ Oui, lors de la modification d'une carte, vous pouvez ajouter une note personnal
 
 ---
 
+## 🏭 Cas d'utilisation supplémentaires
+
+**Comment puis-je encore utiliser l'application ?**
+DiscountCards est non seulement idéal pour les cartes de fidélité et de réduction, mais aussi pour d'autres tâches liées aux codes-barres. Il est particulièrement précieux **dans les lieux sans accès au réseau** (sous-sols d'hypermarchés, entrepôts, zones rurales) — toutes les données sont stockées localement et disponibles instantanément ; vous pouvez les transmettre plus tard à votre bureau par n'importe quel moyen (connexion ou câble).
+
+- **📦 Scan en masse en entrepôt** — utilisez le mode *Scan en masse…* pour scanner continuellement les codes-barres des produits en entrepôt. Chaque code scanné est automatiquement enregistré comme une nouvelle carte dont le nom correspond au code.
+- **📋 Inventaire** — scannez tous les articles les uns après les autres en mode de scan en masse, puis exportez le résultat en **CSV** pour le traiter ensuite dans Excel ou un autre tableur.
+- **📷 Ajout par lots à partir de photos** — si vous avez déjà des photos de produits avec codes-barres, choisissez *Ajout par lots à partir d'images…* et importez plusieurs photos d'un coup. L'application reconnaît les codes-barres via ML Kit et crée les cartes automatiquement.
+- **✏️ Saisie par lots avec noms personnalisés** — si vous souhaitez saisir un nom signifiant plutôt qu'un simple code, utilisez le bouton **« Enregistrer et ajouter un nouveau »** (le carré `+` à côté d'« Enregistrer ») dans le formulaire d'édition. Après chaque scan ou saisie manuelle, vous enregistrez la carte, modifiez le nom et appuyez sur `+` à nouveau — le format, la couleur, l'icône et le magasin restent pré-remplis.
+
+> [!TIP]
+> En mode de scan en masse et lors de l'ajout par lots à partir d'images, le nom de la carte est identique au code-barre. Pour personnaliser le nom, utilisez le bouton « Enregistrer et ajouter un nouveau » ou modifiez la carte après sa création.
+
+**Comment envoyer les données scannées vers un ordinateur ou le bureau ?**
+Après le scan, vous pouvez envoyer les données collectées de la manière la plus pratique :
+- **📤 Exporter vers un fichier (JSON / CSV) :** choisissez *Outils → Exporter vers un fichier…*, enregistrez le fichier JSON ou CSV sur votre appareil, puis transmettez-le à votre bureau ou à la comptabilité.
+- **📲 Partager (Share) :** la même fonctionnalité *Outils → Partager…* ouvre le menu système Android — vous pouvez envoyer le fichier **directement dans un messager** (Telegram, WhatsApp, Signal), **par e-mail** (Gmail, Outlook, etc.), **dans le cloud** (Drive, Dropbox, OneDrive) ou vers toute autre application installée sur le téléphone.
+- **📧 Par e-mail :** il suffit de choisir votre client de messagerie dans le menu « Partager » et de joindre le fichier — cela fonctionne même via MMS si votre client de messagerie le supporte.
+- **🔁 Transfert vers un autre appareil :** envoyez le fichier par Bluetooth, Wi-Fi Direct ou câble USB, puis ouvrez-le sur un autre téléphone ou un ordinateur.
+
+---
+
 ## 💾 Sauvegarde et transfert de données
 
 **Comment créer une sauvegarde des cartes ?**  

@@ -60,6 +60,28 @@ Yes, when editing a card, you can add any custom note as well as a field for a C
 
 ---
 
+## 🏭 Additional Use Cases
+
+**What other ways can I use the app?**
+DiscountCards is not only great for loyalty cards, but also for other barcode-related tasks. It is especially valuable **in places without network access** (hypermarket basements, warehouses, rural areas) — all data is stored locally and available instantly, and you can transfer it to your office later via any connection or cable.
+
+- **📦 Bulk scanning at a warehouse** — use the *Bulk scanning…* mode to continuously scan product barcodes at a warehouse. Each scanned barcode is automatically saved as a new card with the name equal to the code.
+- **📋 Inventory** — scan all items one by one in bulk scanning mode, then export the result to **CSV** for further processing in Excel or other spreadsheet editors.
+- **📷 Batch import from photos** — if you already have photos of products with barcodes, select *Bulk import from images…* and upload multiple photos at once. The app recognizes barcodes via ML Kit and creates cards automatically.
+- **✏️ Batch entry with custom names** — if you need meaningful names rather than just codes, use the **"Save & Add Another"** button (the square `+` next to "Save") on the edit form. After each scan or manual entry, you save the card, change the name, and press `+` again — format, color, icon, and store remain pre-filled.
+
+> [!TIP]
+> In bulk scanning mode and batch import from images, the card name will be equal to the barcode. If you need a custom name, use the "Save & Add Another" button or edit the card after creation.
+
+**How do I send the scanned data to a computer or the office?**
+After scanning, you can send the collected data in any convenient way:
+- **📤 Export to file (JSON / CSV):** select *Tools → Export to file…*, save the JSON or CSV to your device and transfer it to your office or accounting.
+- **📲 Share:** the same feature *Tools → Share…* opens the Android system menu — you can send the file **directly to a messenger** (Telegram, WhatsApp, Signal), **to your email** (Gmail, Outlook, etc.), **to the cloud** (Drive, Dropbox, OneDrive), or to any other app installed on your phone.
+- **📧 By email:** just pick your email client from the "Share" menu and attach the file — it even works over plain MMS if your email client supports it.
+- **🔁 Transfer to another device:** send the file via Bluetooth, Wi-Fi Direct, or a USB cable, then open it on another phone or computer.
+
+---
+
 ## 💾 Backup and Data Transfer
 
 **How to create a backup of cards?**  

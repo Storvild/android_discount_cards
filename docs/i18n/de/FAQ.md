@@ -60,6 +60,28 @@ Ja, beim Bearbeiten einer Karte können Sie eine beliebige Notiz sowie ein Feld 
 
 ---
 
+## 🏭 Zusätzliche Anwendungsfälle
+
+**Wie kann ich die App noch auf andere Weise verwenden?**
+DiscountCards eignet sich nicht nur für Treue- und Rabattkarten, sondern auch für andere Barcode-Aufgaben. Besonders wertvoll ist die App **an Orten ohne Netzwerkzugang** (Keller von Hypermärkten, Lager, ländliche Gebiete) — alle Daten werden lokal gespeichert und stehen sofort zur Verfügung; Sie können sie später per jeder Verbindung oder Kabel in Ihr Büro übertragen.
+
+- **📦 Massen-Scanning im Lager** — verwenden Sie den Modus *Massen-Scanning…*, um Produkbarcodes im Lager kontinuierlich zu scannen. Jeder gescannte Barcode wird automatisch als neue Karte gespeichert, deren Name dem Code entspricht.
+- **📋 Inventur** — scannen Sie alle Artikel nacheinander im Massen-Scanning-Modus und exportieren Sie das Ergebnis dann in **CSV** für die weitere Bearbeitung in Excel oder anderen Tabellenprogrammen.
+- **📷 Batch-Import aus Fotos** — wenn Sie bereits Fotos von Produkten mit Barcodes haben, wählen Sie *Batch-Import aus Bildern…* und laden Sie mehrere Fotos gleichzeitig hoch. Die App erkennt die Barcodes per ML Kit und erstellt automatisch Karten.
+- **✏️ Batch-Eingabe mit individuellen Namen** — wenn Sie aussagekräftige Namen statt bloßer Codes benötigen, nutzen Sie die Schaltfläche **«Speichern und neue hinzufügen»** (das quadratische `+` neben „Speichern“) im Bearbeitungsformular. Nach jedem Scan oder jeder manuellen Eingabe speichern Sie die Karte, ändern den Namen und drücken `+` erneut — Format, Farbe, Icon und Laden bleiben vorausgefüllt.
+
+> [!TIP]
+> Im Massen-Scanning-Modus und beim Batch-Import aus Bildern entspricht der Kartenname dem Barcode. Für individuelle Namen nutzen Sie die Schaltfläche „Speichern und neue hinzufügen“ oder bearbeiten Sie die Karte nach der Erstellung.
+
+**Wie übertrage ich die gescannten Daten auf den Computer oder ins Büro?**
+Nach dem Scannen können Sie die gesammelten Daten auf jede bequeme Weise senden:
+- **📤 Export in eine Datei (JSON / CSV):** wählen Sie *Werkzeuge → In Datei exportieren…*, speichern Sie die JSON- oder CSV-Datei auf dem Gerät und übergeben Sie sie an Ihr Büro oder an die Buchhaltung.
+- **📲 Teilen (Share):** dieselbe Funktion *Werkzeuge → Teilen…* öffnet das Android-Systemmenü — Sie können die Datei **direkt an einen Messenger** (Telegram, WhatsApp, Signal) senden, **per E-Mail** (Gmail, Outlook usw.) versenden, in die **Cloud** (Drive, Dropbox, OneDrive) hochladen oder an jede andere App auf dem Telefon senden.
+- **📧 Per E-Mail:** wählen Sie einfach Ihren E-Mail-Client aus dem „Teilen“-Menü und hängen Sie die Datei an — es funktioniert sogar über gewöhnliches MMS, falls Ihr E-Mail-Client dies unterstützt.
+- **🔁 Übertragung auf ein anderes Gerät:** senden Sie die Datei per Bluetooth, Wi-Fi Direct oder USB-Kabel und öffnen Sie sie anschließend auf einem anderen Telefon oder Computer.
+
+---
+
 ## 💾 Sicherung und Datenübertragung
 
 **Wie erstelle ich eine Sicherungskopie der Karten?**  
